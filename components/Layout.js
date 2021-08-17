@@ -1,14 +1,11 @@
 import Link from "next/link";
+import NavBar from "./NavBar";
 
 export default function Layout({ children }) {
 	return (
 		<div className="layout">
 			<header>
-				<Link href="/">
-					<a>
-						<h1>Ray Atelier</h1>
-					</a>
-				</Link>
+				<NavBar />
 			</header>
 
 			<div className="page-content">{children}</div>

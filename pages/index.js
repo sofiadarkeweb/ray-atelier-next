@@ -1,3 +1,14 @@
+import Head from "next/head";
+
 export default function Projects() {
-	return <div className="project-list">projects</div>;
+	return (
+		<>
+			<Head>
+				<title>Ray Atelier | Home </title>
+			</Head>
+			<div>
+				<h1>hero</h1>
+			</div>
+		</>
+	);
 }
