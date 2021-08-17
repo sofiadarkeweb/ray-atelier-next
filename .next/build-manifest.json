@@ -29,16 +29,6 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/about.js"
     ],
-    "/clients": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/clients.js"
-    ],
-    "/contact": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/contact.js"
-    ],
     "/projects": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
