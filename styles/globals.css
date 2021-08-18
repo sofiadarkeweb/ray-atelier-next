@@ -4,7 +4,7 @@ body {
 	background: white;
 	margin: 0;
 	font-family: "Roboto";
-	font-size: 1.5em;
+	/* font-size: 1.5em; */
 }
 .layout {
 	min-height: 100vh;
@@ -12,46 +12,48 @@ body {
 	flex-direction: column;
 }
 header {
-	text-align: center;
-	margin: 60px 0;
+	/* text-align: center; */
+	margin: 40px 0;
+	background-color: whitesmoke;
+	/* border: 1px red solid; */
 }
-header a {
+
+.nav-bar a {
 	text-decoration: none;
 	color: black;
-	text-transform: uppercase;
-	display: inline-block;
+	/* text-transform: uppercase; */
+	font-size: 0.8em;
+	/* border: 1px green solid; */
+	flex-direction: row;
 }
-header h1,
-header h2 {
-	margin: 0;
+
+.nav-bar {
+	margin: 0 auto;
+	width: 90vw;
+	padding: 20px;
+
+	/* border: 1px yellow solid; */
+	justify-content: space-between;
+	display: flex;
 }
-header span {
-	display: block;
-	line-height: 1em;
+
+.project-list {
+	display: flex;
+	flex-direction: column;
 }
-header span:first-child {
-	font-size: 1em;
-	font-weight: 400;
-}
-header span:last-child {
-	font-size: 1.5em;
-	font-weight: 800;
-}
-header h2 {
-	font-size: 1.2em;
-	font-weight: 400;
-}
+
 footer {
-	background: #111;
-	color: #bbb;
-	padding: 40px;
+	background: whitesmoke;
+	/* color: #bbbbbb; */
+	padding: 20px;
 	text-align: center;
 	margin-top: auto;
+	font-size: 0.8em;
 }
-.page-content {
+/* .page-content {
 	max-width: 1200px;
 	margin: 20px auto 80px;
 	padding: 0 20px;
 	width: 100%;
 	box-sizing: border-box;
-}
+} */

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
 	return (
@@ -11,7 +12,7 @@ export default function Layout({ children }) {
 			<div className="page-content">{children}</div>
 
 			<footer>
-				<p>Copyright 2021 Ray Atelier</p>
+				<Footer />
 			</footer>
 		</div>
 	);

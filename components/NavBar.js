@@ -3,12 +3,19 @@ import Link from "next/link";
 
 const NavBar = () => {
 	return (
-		<div>
-			<Link href="/projects">
-				<a>projects</a>
-			</Link>
+		<div className="nav-bar">
+			<div className="project-list">
+				<Link href="/projects">
+					<a>projects</a>
+				</Link>
+				<a>project 1</a>
+				<a>project 2</a>
+			</div>
 			<Link href="/about">
 				<a>about</a>
+			</Link>
+			<Link href="/">
+				<a>Ray Atelier</a>
 			</Link>
 			<Link href="/clients">
 				<a>clients</a>
