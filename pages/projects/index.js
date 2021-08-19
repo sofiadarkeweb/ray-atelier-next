@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const getStaticProps = async () => {
 	const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -13,14 +14,23 @@ export const getStaticProps = async () => {
 const projects = ({ projects }) => {
 	return (
 		<div>
-			<h1>project list</h1>
 			<div className="projects-area">
 				{/* {console.log({ projects })} */}
 				{projects.map((project) => (
 					<Link href={"/projects/" + project.id} key={project.id}>
 						<div className="project-box">
+							<Image
+								src="https://picsum.photos/200/300
+                                "
+								width={500}
+								height={300}
+								className="project-thumbnail"
+							></Image>
 							<a>
-								<h3>{project.name}</h3>
+								<p>
+									{project.name} <br />
+									{project.address.city}
+								</p>
 							</a>
 						</div>
 					</Link>

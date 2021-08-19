@@ -13,7 +13,7 @@ export const getStaticProps = async () => {
 const NavBar = ({ projects }) => {
 	return (
 		<div className="nav-bar">
-			{console.log({ projects })}
+			{/* {console.log({ projects })} */}
 			<div className="project-list">
 				<Link href="/projects">
 					<a>projects</a>

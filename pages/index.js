@@ -8,15 +8,15 @@ export default function Hero() {
 				<title>Ray Atelier | Home </title>
 			</Head>
 
-			{/* <div className="hero-img">
+			<div className="hero-img">
 				<Image
 					src="/borg.jpg"
 					alt="hej"
-					// width={1300}
-					// height={1000}
-					layout="fill"
+					width={1300}
+					height={1000}
+					// layout="fill"
 				/>
-			</div> */}
+			</div>
 		</>
 	);
 }
