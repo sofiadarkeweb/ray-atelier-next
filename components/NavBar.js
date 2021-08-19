@@ -1,16 +1,26 @@
 import React from "react";
 import Link from "next/link";
 
-export const getStaticProps = async () => {
-	const res = await fetch("https://jsonplaceholder.typicode.com/users");
-	const data = await res.json();
+// export const getStaticProps = async () => {
+// 	const res = await fetch("https://jsonplaceholder.typicode.com/users");
+// 	const data = await res.json();
 
-	return {
-		props: { projects: data },
-	};
-};
+// 	return {
+// 		props: { projects: data },
+// 	};
+// };
 
-const NavBar = ({ projects }) => {
+fetch("https://jsonplaceholder.typicode.com/users")
+	.then((response) => response.json())
+	.then((data) => console.log(data));
+
+// async function fetchData() {
+// 	const response = await fetch("https://jsonplaceholder.typicode.com/users");
+// 	// waits until the request completes...
+// 	console.log(response);
+// }
+
+const NavBar = ({ data }) => {
 	return (
 		<div className="nav-bar">
 			{/* {console.log({ projects })} */}
@@ -18,6 +28,13 @@ const NavBar = ({ projects }) => {
 				<Link href="/projects">
 					<a>projects</a>
 				</Link>
+				{/* <div>
+					{data.map((project) => (
+						<a>
+							<p>{project.name}</p>
+						</a>
+					))}
+				</div> */}
 				<a>project 1</a>
 				<a>project 2</a>
 			</div>
