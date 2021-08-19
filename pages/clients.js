@@ -12,8 +12,8 @@ export const getStaticProps = async () => {
 
 const clients = ({ clients }) => {
 	return (
-		<div>
-			{console.log({ clients })}
+		<div className="page-content">
+			{/* {console.log({ clients })} */}
 			<h1>clients</h1>
 			<div>
 				{clients.map((project) => (
