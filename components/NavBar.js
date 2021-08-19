@@ -1,9 +1,19 @@
 import React from "react";
 import Link from "next/link";
 
-const NavBar = () => {
+export const getStaticProps = async () => {
+	const res = await fetch("https://jsonplaceholder.typicode.com/users");
+	const data = await res.json();
+
+	return {
+		props: { projects: data },
+	};
+};
+
+const NavBar = ({ projects }) => {
 	return (
 		<div className="nav-bar">
+			{console.log({ projects })}
 			<div className="project-list">
 				<Link href="/projects">
 					<a>projects</a>
@@ -23,6 +33,17 @@ const NavBar = () => {
 			<Link href="/contact">
 				<a>contact</a>
 			</Link>
+			{/* <div>
+				{projects.map((project) => (
+					<Link href={"/projects/" + project.id} key={project.id}>
+						<div className="project-box">
+							<a>
+								<p>{project.name}</p>
+							</a>
+						</div>
+					</Link>
+				))}
+			</div> */}
 		</div>
 	);
 };
