@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap");
 
 body {
 	background: white;
 	margin: 0;
-	font-family: "Roboto";
-	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-	/* font-size: 1.5em; */
+	/* font-family: "Roboto"; */
+	font-family: "Cormorant Garamond", serif;
+	font-size: 1rem;
 }
 .layout {
 	min-height: 100vh;
@@ -22,10 +23,14 @@ header {
 .nav-bar a {
 	text-decoration: none;
 	color: black;
-	/* text-transform: uppercase; */
-	font-size: 0.8em;
-	/* border: 1px green solid; */
 	flex-direction: row;
+}
+.nav-bar a:hover {
+	color: rgb(143, 40, 40);
+}
+
+.nav-bar a:focus {
+	text-decoration: underline;
 }
 
 .nav-bar {
@@ -62,7 +67,7 @@ header {
 }
 
 .project-box p {
-	font-size: 0.6em;
+	font-size: 0.8em;
 }
 
 .project-thumbnail {
@@ -96,6 +101,7 @@ footer {
 
 .page-content {
 	padding-left: 8rem;
+	padding-right: 8rem;
 }
 /* .page-content {
 	max-width: 1200px;
