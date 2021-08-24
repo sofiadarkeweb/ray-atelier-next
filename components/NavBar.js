@@ -10,20 +10,26 @@ import Link from "next/link";
 // 	};
 // };
 
-fetch("https://jsonplaceholder.typicode.com/users")
-	.then((response) => response.json())
-	.then((data) => console.log(data));
+//usestate?
+//useeefect
 
-// async function fetchData() {
-// 	const response = await fetch("https://jsonplaceholder.typicode.com/users");
-// 	// waits until the request completes...
-// 	console.log(response);
-// }
+async function fetchData() {
+	const response = await fetch("https://jsonplaceholder.typicode.com/users");
+	// waits until the request completes...
+	console.log(response);
+}
 
-const NavBar = ({ data }) => {
+const NavBar = () => {
+	fetch("https://jsonplaceholder.typicode.com/users")
+		.then((response) => response.json())
+		.then((data) => console.log("HEJ"));
+	// return {
+	// 	data,
+	// };
+
 	return (
 		<div className="nav-bar">
-			{/* {console.log({ projects })} */}
+			{/* {console.log({ data })} */}
 			<div className="project-list">
 				<Link href="/projects">
 					<a>projects</a>

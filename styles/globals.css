@@ -103,6 +103,22 @@ footer {
 	padding-left: 8rem;
 	padding-right: 8rem;
 }
+
+.card {
+	border: 2px red solid;
+	height: 50vh;
+	/* object-fit: cover; */
+	/* text-align: center; */
+}
+
+.thumbnail {
+	/* width: 100%; */
+	height: 80%;
+	object-fit: cover;
+	border: 2px blue solid;
+	overflow: hidden;
+}
+
 /* .page-content {
 	max-width: 1200px;
 	margin: 20px auto 80px;
