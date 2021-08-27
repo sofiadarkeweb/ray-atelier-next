@@ -7,19 +7,20 @@ const projectCard = ({ portfolioProject }) => {
 		portfolioProject.fields;
 	return (
 		<div className="card">
-			<div className="thumbnail">
-				<Image
-					src={"https:" + thumbnail.fields.file.url}
-					width={thumbnail.fields.file.details.image.width}
-					height={thumbnail.fields.file.details.image.height}
-					objectFit="contain"
-					// className="thumbnail-image"
-				/>
-			</div>
-			<div>{projectTitle}</div>
-			<div>{year}</div>
 			<Link href={"/projects/" + slug}>
-				<a>See me</a>
+				<a>
+					<div className="thumbnail">
+						<Image
+							src={"https:" + thumbnail.fields.file.url}
+							width={thumbnail.fields.file.details.image.width}
+							height={thumbnail.fields.file.details.image.height}
+							objectFit="contain"
+							// className="thumbnail-image"
+						/>
+					</div>
+					<div className="info-text">{projectTitle}</div>
+					<div className="info-text">{year}</div>
+				</a>
 			</Link>
 		</div>
 	);

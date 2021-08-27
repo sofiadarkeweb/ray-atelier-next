@@ -53,25 +53,29 @@ export default function ProjectDetails({ portfolioProject }) {
 					objectFit="contain"
 				/>
 			</div>
-			<h2>{projectTitle}</h2>
-			<p>{year}</p>
-			<p>{description}</p>
-			<Image
+			<div className="project-content">
+				<p>{year}</p>
+				<h2>{projectTitle}</h2>
+				<p>{description}</p>
+			</div>
+			{/* <Image
 				src={"https:" + projectImages[0].fields.file.url}
 				width={projectImages[0].fields.file.details.image.width}
 				height={projectImages[0].fields.file.details.image.height}
-			/>
+			/> */}
+			<div className="img-grid">
+				{/* console.log({projectImages}) */}
+				{projectImages.map((img) => (
+					// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
 
-			{projectImages.map((img) => (
-				<div>
 					<Image
 						key={img.sys.id}
 						src={"https:" + img.fields.file.url}
 						width={img.fields.file.details.image.width}
 						height={img.fields.file.details.image.height}
 					/>
-				</div>
-			))}
+				))}
+			</div>
 		</div>
 	);
 }
