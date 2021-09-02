@@ -9,7 +9,7 @@ export default function Layout({ children }) {
 				<NavBar />
 			</header>
 
-			<div>{children}</div>
+			<main>{children}</main>
 
 			<footer>
 				<Footer />

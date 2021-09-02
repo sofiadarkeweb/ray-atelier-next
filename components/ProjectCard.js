@@ -3,8 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const projectCard = ({ portfolioProject }) => {
-	const { projectTitle, description, year, thumbnail, slug } =
-		portfolioProject.fields;
+	const { projectTitle, year, thumbnail, slug } = portfolioProject.fields;
 	return (
 		<div className="card">
 			<Link href={"/projects/" + slug}>

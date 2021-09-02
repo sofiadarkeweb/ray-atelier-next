@@ -9,4 +9,7 @@ function MyApp({ Component, pageProps }) {
 	);
 }
 
+//lägg till props i layout för navbar titlar
+//testa env variabler.
+
 export default MyApp;

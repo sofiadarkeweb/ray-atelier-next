@@ -112,14 +112,6 @@ footer {
 	/* text-align: center; */
 }
 
-.thumbnail {
-	/* width: 100%; */
-	/* height: 80%; */
-	object-fit: cover;
-	/* border: 2px blue solid; */
-	overflow: hidden;
-}
-
 .feat-img {
 	width: 100%;
 	height: 60vh;
@@ -129,6 +121,30 @@ footer {
 
 .project-page {
 	/* text-align: center; */
+}
+
+/* all thumbmnail in a grid*/
+.project-list {
+	border: 3px green solid;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	/* grid-template-rows: masonry; */
+	grid-gap: 20px;
+	margin: 2rem;
+}
+
+.card {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border: 2px blue solid;
+	/* overflow: hidden; */
+}
+
+.thumbnail {
+	/* object-fit: cover; */
+	/* border: 2px blue solid; */
+	/* overflow: hidden; */
 }
 
 .project-content {
@@ -156,12 +172,28 @@ a {
 	border: 1px red solid;
 }
 
+.nav-project-list {
+	display: flex;
+	padding-left: 8rem;
+	padding-right: 8rem;
+	margin-top: -2.5rem;
+}
+
 .project-list-items {
-	opacity: 0;
+	padding-right: 0.2rem;
+	/* opacity: 0; */
 	/* visibility: hidden; */
 }
+
+.project-list-items ::after {
+	content: " |";
+}
+.project-list-items ::before {
+	content: " ";
+}
+
 .project-list-items:hover {
-	opacity: 1;
+	/* opacity: 1; */
 	/* visibility: visible; */
 }
 

@@ -2,6 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ProjectCard from "../../components/ProjectCard";
+import NavBar from "../../components/NavBar";
+import NavProjectList from "../../components/NavProjectList";
 // import { getStaticProps } from "../clients";
 import { createClient } from "contentful";
 
@@ -21,22 +23,25 @@ export async function getStaticProps() {
 }
 
 const projects = ({ portfolioprojects }) => {
-	// console.log(portfolioprojects);
+	// console.log(title);
+	// console.log(portfolioprojects[0].fields.projectTitle);
 	return (
-		<div className="project-list">
-			{portfolioprojects.map((project) => (
-				<ProjectCard key={project.sys.id} portfolioProject={project} />
-			))}
-			<style jsx>{`
-				.project-list {
-					border: 3px green solid;
-					display: grid;
-					grid-template-columns: 1fr 1fr 1fr;
-					grid-gap: 20px;
-					margin: 2rem;
-				}
-			`}</style>
-		</div>
+		<>
+			<div className="nav-project-list">
+				{portfolioprojects.map((project) => (
+					<NavProjectList
+						key={project.sys.id}
+						slug={project.fields.slug}
+						title={project.fields.projectTitle}
+					/>
+				))}
+			</div>
+			<div className="project-list">
+				{portfolioprojects.map((project) => (
+					<ProjectCard key={project.sys.id} portfolioProject={project} />
+				))}
+			</div>
+		</>
 	);
 };
 
