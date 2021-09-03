@@ -8,12 +8,8 @@ export default function Layout({ children }) {
 			<header>
 				<NavBar />
 			</header>
-
 			<main>{children}</main>
-
-			<footer>
-				<Footer />
-			</footer>
+			<Footer />
 		</div>
 	);
 }

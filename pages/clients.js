@@ -14,15 +14,15 @@ export const getStaticProps = async () => {
 const clients = ({ clients }) => {
 	return (
 		<>
-			<div className="page-content">
+			<div className="text-section">
 				{/* {console.log({ clients })} */}
-				<h1>clients</h1>
+				{/* <h1>clients</h1> */}
 				<div>
 					{clients.map((project) => (
 						<Link href={"/projects/" + project.id} key={project.id}>
 							<div>
 								<a>
-									<h3>{project.name}</h3>
+									<span>{project.name}</span>
 								</a>
 							</div>
 						</Link>

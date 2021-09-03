@@ -6,6 +6,7 @@ import NavBar from "../../components/NavBar";
 import NavProjectList from "../../components/NavProjectList";
 // import { getStaticProps } from "../clients";
 import { createClient } from "contentful";
+import Masonry from "react-masonry-css";
 
 export async function getStaticProps() {
 	const client = createClient({
@@ -23,23 +24,34 @@ export async function getStaticProps() {
 }
 
 const projects = ({ portfolioprojects }) => {
+	const breakpointColumnsObj = {
+		default: 3,
+		700: 2,
+		500: 1,
+	};
 	// console.log(title);
 	// console.log(portfolioprojects[0].fields.projectTitle);
 	return (
 		<>
-			<div className="nav-project-list">
-				{portfolioprojects.map((project) => (
-					<NavProjectList
-						key={project.sys.id}
-						slug={project.fields.slug}
-						title={project.fields.projectTitle}
-					/>
-				))}
-			</div>
-			<div className="project-list">
-				{portfolioprojects.map((project) => (
-					<ProjectCard key={project.sys.id} portfolioProject={project} />
-				))}
+			<div>
+				<div className="nav-project-list">
+					{portfolioprojects.map((project) => (
+						<NavProjectList
+							key={project.sys.id}
+							slug={project.fields.slug}
+							title={project.fields.projectTitle}
+						/>
+					))}
+				</div>
+				<Masonry
+					breakpointCols={breakpointColumnsObj}
+					className="my-masonry-grid"
+					columnClassName="my-masonry-grid_column"
+				>
+					{portfolioprojects.map((project) => (
+						<ProjectCard key={project.sys.id} portfolioProject={project} />
+					))}
+				</Masonry>
 			</div>
 		</>
 	);

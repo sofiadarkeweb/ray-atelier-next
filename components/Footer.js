@@ -3,9 +3,9 @@ import React from "react";
 const Footer = () => {
 	let thisYear = new Date().getFullYear();
 	return (
-		<div>
+		<footer>
 			<p>Ray Atelier {thisYear}</p>
-		</div>
+		</footer>
 	);
 };
 

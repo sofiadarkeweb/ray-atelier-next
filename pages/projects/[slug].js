@@ -1,6 +1,6 @@
 import { createClient } from "contentful";
-
 import Image from "next/image";
+import Masonry from "react-masonry-css";
 
 const client = createClient({
 	space: process.env.CONTENFUL_SPACE_ID,
@@ -39,6 +39,11 @@ export async function getStaticProps({ params }) {
 
 // how to output several images in different formats?
 export default function ProjectDetails({ portfolioProject }) {
+	const breakpointColumnsObj = {
+		default: 2,
+		500: 1,
+	};
+
 	const { projectTitle, description, year, featuredImage, projectImages } =
 		portfolioProject.fields;
 	console.log(portfolioProject);
@@ -63,19 +68,27 @@ export default function ProjectDetails({ portfolioProject }) {
 				width={projectImages[0].fields.file.details.image.width}
 				height={projectImages[0].fields.file.details.image.height}
 			/> */}
-			<div className="img-grid">
-				{/* console.log({projectImages}) */}
-				{projectImages.map((img) => (
-					// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
 
-					<Image
-						key={img.sys.id}
-						src={"https:" + img.fields.file.url}
-						width={img.fields.file.details.image.width}
-						height={img.fields.file.details.image.height}
-					/>
-				))}
-			</div>
+			<Masonry
+				breakpointCols={breakpointColumnsObj}
+				className="my-masonry-grid"
+				columnClassName="my-masonry-grid_column"
+			>
+				{/* console.log({projectImages}) */}
+				{projectImages &&
+					projectImages.map((img) => (
+						// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
+						<div className="masonry-img">
+							<Image
+								key={img.sys.id}
+								src={"https:" + img.fields.file.url}
+								width={img.fields.file.details.image.width}
+								height={img.fields.file.details.image.height}
+							/>
+							<span className="caption">{img.fields.description}</span>
+						</div>
+					))}
+			</Masonry>
 		</div>
 	);
 }

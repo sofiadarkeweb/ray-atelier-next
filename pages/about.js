@@ -21,7 +21,7 @@ export async function getStaticProps() {
 const about = () => {
 	return (
 		<>
-			<div className="page-content">
+			<div className="text-section">
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
 					sunt in sapiente consequuntur labore quam magni excepturi voluptatum

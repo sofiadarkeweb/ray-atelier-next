@@ -38,22 +38,22 @@ const NavBar = ({ oneproject }) => {
 	}, []);
 
 	return (
-		<div className="nav-bar">
+		<nav className="nav-bar">
 			<Link href="/projects">
-				<a>projects</a>
+				<a className="nav-bar-items">Work</a>
 			</Link>
 
 			<Link href="/about">
-				<a>about</a>
+				<a className="nav-bar-items">Info</a>
 			</Link>
 			<Link href="/">
-				<a>Ray Atelier</a>
+				<a className="nav-bar-items">Ray Atelier</a>
 			</Link>
 			<Link href="/clients">
-				<a>clients</a>
+				<a className="nav-bar-items">Clients</a>
 			</Link>
 			<Link href="/contact">
-				<a>contact</a>
+				<a className="nav-bar-items">Contact</a>
 			</Link>
 			{/* <div>
 				{projects.map((project) => (
@@ -66,7 +66,7 @@ const NavBar = ({ oneproject }) => {
 					</Link>
 				))}
 			</div> */}
-		</div>
+		</nav>
 	);
 };
 
