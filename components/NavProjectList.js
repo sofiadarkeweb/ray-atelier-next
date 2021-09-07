@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Headroom from "react-headroom";
 
 const NavProjectList = ({ title, slug }) => {
 	return (

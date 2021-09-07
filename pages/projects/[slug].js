@@ -46,7 +46,7 @@ export default function ProjectDetails({ portfolioProject }) {
 
 	const { projectTitle, description, year, featuredImage, projectImages } =
 		portfolioProject.fields;
-	console.log(portfolioProject);
+	// console.log(portfolioProject);
 
 	return (
 		<div className="project-page">

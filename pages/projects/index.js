@@ -34,6 +34,7 @@ const projects = ({ portfolioprojects }) => {
 	return (
 		<>
 			<div>
+				<div className="bar"></div>
 				<div className="nav-project-list">
 					{portfolioprojects.map((project) => (
 						<NavProjectList

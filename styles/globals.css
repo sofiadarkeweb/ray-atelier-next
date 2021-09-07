@@ -10,12 +10,14 @@
 body {
 	background: white;
 	font-family: "Cormorant Garamond", serif;
-	font-size: 1rem;
+	font-size: 14px;
 }
 
 html {
 	/* height: 100%; */
 }
+
+/* MAIN ELEMENTS*/
 
 header {
 	/* width: 100vw; */
@@ -35,20 +37,27 @@ header {
 
 .nav-bar {
 	/* margin: 0 auto; */
-	position: fixed;
-	padding-top: 1em;
-	padding-bottom: 1em;
+	/* position: fixed; */
+	/* position: sticky;
+	top: 0px; */
+	/* padding-top: 1em;
+	padding-bottom: 1em; */
 
-	/* padding: 1rem; */
+	height: 8vh;
 	padding-left: 10%;
 	padding-right: 10%;
 	z-index: 1000;
 	width: 100%;
 	justify-content: space-between;
+	align-items: center;
 	display: flex;
-
-	/* position: relative; */
+	opacity: 1;
 	background-color: white;
+}
+
+.nav-bar:hover {
+	opacity: 1;
+	transition: all 1s ease-out;
 }
 
 .nav-bar-items {
@@ -63,82 +72,46 @@ a {
 	cursor: pointer;
 }
 a:hover {
-	color: rgb(40, 107, 143);
+	color: rgb(57, 57, 57);
 }
 
 a:focus {
 	text-decoration: underline;
 }
 
-/* .project-list {
-	display: flex;
-	flex-direction: column;
-} */
-
-/* .projects-area {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 1rem;
-	gap: 1rem;
-} */
-
-/* .project-box p {
-	font-size: 0.8em;
-} */
-
-/* .project-thumbnail {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	overflow: hidden;
-} */
-
-.landing-page {
-	/* display: flex; */
-	/* justify-content: center; */
-	/* width: 100%; */
-	/* height: 100vh; */
-	/* position: relative; */
-	/* border: 1px red solid; */
-	/* position: fixed;
-	height: 100vh;
-	width: 100vw;
-	overflow: hidden;
-	z-index: -1; */
-}
-
-.hero-img-container {
-	/* display: block;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	box-sizing: border-box;
-	margin: 0; */
-
-	/* display: block;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	overflow: hidden;
-	border: 1px blue solid;
-	position: relative; */
-}
-
 footer {
-	/* background: whitesmoke; */
+	/* background: yellow; */
+	width: 100%;
 	/* color: #bbbbbb; */
 	padding: 20px;
 	text-align: center;
-	margin-top: auto;
+	display: flex;
 	font-size: 0.8em;
+
+	position: fixed;
+	bottom: 0;
 }
 
-.page-content {
+/*LANDING PAGE*/
+
+.landing-page {
 }
+
+.logo-front {
+	z-index: 3000;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	/* border: 1px red solid; */
+}
+
+.hero-img-container {
+	transition: all 1s ease-in-out;
+}
+
+/*WORK / PROJECT PAGE*/
 
 .text-section {
 	padding-left: 10%;
@@ -146,45 +119,10 @@ footer {
 	padding-top: 5rem;
 }
 
-.project-page {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	/* text-align: center; */
-}
-
-.feat-img {
-	width: 100%;
-	/* height: 45vh; */
-	background-position: center center;
-	object-fit: cover;
-	overflow: hidden;
-	object-position: center;
-}
-
-/* all thumbmnail in a grid*/
-/* .project-list {
-	border: 3px green solid;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-
-	grid-gap: 20px;
-	margin: 2rem;
-} */
-
 .card {
 	margin-top: 2rem;
 	margin-right: 10px;
 	margin-left: 10px;
-}
-
-.project-content {
-	padding-left: 10%;
-	padding-right: 10%;
-	margin-top: 2rem;
-	margin-bottom: 4rem;
 }
 
 .info-text {
@@ -193,8 +131,77 @@ footer {
 	line-height: 1em;
 }
 
-a {
-	text-decoration: none;
+/* NAVMENY PROJECTS*/
+
+.nav-project-list {
+	display: flex;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 1rem;
+	margin-top: 7vh;
+	/* padding-top: 4rem; */
+	flex-wrap: wrap;
+	z-index: 4000;
+	opacity: 1;
+	background-color: white;
+
+	/* position: absolute; */
+}
+
+.nav-project-list:hover {
+	opacity: 1;
+	transition: all 1s ease-in-out;
+}
+
+.project-list-items {
+	margin: 0;
+	padding-right: 0.2rem;
+	white-space: nowrap;
+
+	/* opacity: 0; */
+	/* visibility: hidden; */
+}
+
+.project-list-items ::after {
+	content: " |";
+}
+.project-list-items ::before {
+	content: " ";
+}
+
+.bar {
+	width: 80%;
+	height: 1px;
+	background-color: black;
+	/* margin */
+}
+
+.project-list-items:hover {
+	/* opacity: 1; */
+	/* visibility: visible; */
+}
+
+/*INDIVIDUAL PROJECTS*/
+
+.project-page {
+	flex-direction: column;
+	align-items: center;
+}
+
+.feat-img {
+	width: 100vw;
+	height: 60vh;
+	/* background-position: center center; */
+	object-fit: cover;
+	overflow: hidden;
+	object-position: center;
+}
+
+.project-content {
+	padding-left: 10%;
+	padding-right: 10%;
+	margin-top: 2rem;
+	margin-bottom: 4rem;
 }
 
 .my-masonry-grid {
@@ -226,39 +233,21 @@ a {
 	/* border: 1px red solid; */
 }
 
-.nav-project-list {
-	display: flex;
-	padding-left: 10%;
-	padding-right: 10%;
-	padding-top: 4rem;
-	flex-wrap: wrap;
-	z-index: 4000;
+.mobile-nav {
+	display: none;
 }
 
-.project-list-items {
-	margin: 0;
-	padding-right: 0.2rem;
-	white-space: nowrap;
-	/* opacity: 0; */
-	/* visibility: hidden; */
-}
-
-.project-list-items ::after {
-	content: " |";
-}
-.project-list-items ::before {
-	content: " ";
-}
-
-.project-list-items:hover {
-	/* opacity: 1; */
-	/* visibility: visible; */
+.mobile-links-open {
+	display: none;
 }
 
 @media screen and (max-width: 500px) {
 	/* .my-masonry-grid {
 		margin-right: -30px;
 	} */
+
+	.mobile-links-open {
+	}
 
 	.card {
 		margin-top: 2rem;
@@ -269,6 +258,14 @@ a {
 	.info-text {
 		margin-left: 0.5em;
 	}
+
+	.mobile-title {
+		display: none;
+	}
+
+	.mobile-nav {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 500px) {
@@ -276,13 +273,78 @@ a {
 		margin-right: -30px;
 	} */
 
+	.feat-img {
+		width: 100vw;
+		height: 45vh;
+	}
+
 	.card {
-		margin-right: -10px;
-		margin-left: -10px;
+		/* margin-right: -10px;
+		margin-left: -10px; */
 	}
 
 	.info-text {
 		font-size: 0.9em;
-		margin-left: 0.5em;
+		margin-left: 0;
+	}
+
+	.line {
+		width: 30px;
+		height: 2px;
+		margin: 5px;
+		background-color: black;
+	}
+
+	.nav-bar {
+		display: none;
+	}
+
+	/* .mobile-title {
+		display: none;
+	} */
+
+	header {
+		/* position: relative;
+		height: 10vh; */
+		/* background-color: white; */
+	}
+
+	.mobile-nav {
+		display: flex;
+		width: 100%;
+		background-color: white;
+		align-items: center;
+		justify-content: space-between;
+		height: 3rem;
+	}
+
+	.hamburger {
+		cursor: pointer;
+		margin: 0px;
+
+		padding-right: 4%;
+		/* position: absolute; */
+		/* right: 5%;
+		top: 30%;
+		transform: translate(-5%, -30%); */
+	}
+
+	.mobile-nav a {
+		margin: 0px;
+		margin-left: 5%;
+	}
+
+	.nav-project-list {
+		display: flex;
+		padding-left: 5%;
+		padding-right: 5%;
+
+		padding-bottom: 0;
+		margin-top: 4vh;
+		/* padding-top: 4rem; */
+	}
+
+	.bar {
+		width: 90%;
 	}
 }
