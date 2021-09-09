@@ -95,6 +95,8 @@ const NavBar = ({ oneproject }) => {
 						background-color: white;
 						height: 100vh;
 						padding-left: 5%;
+						padding-top: 2rem;
+						z-index: 4000;
 					}
 				`}
 			</style>
