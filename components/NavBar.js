@@ -71,8 +71,8 @@ const NavBar = ({ oneproject }) => {
 				<Hamburger />
 			</div>
 			<div className="mobile-links-open" onClick={toggleHamburger}>
-				<Link href="/projects">
-					<a className="mobile-link">Work</a>
+				<Link className="mobile-link" href="/projects">
+					<a>Work</a>
 				</Link>
 				<Link className="mobile-link" href="/about">
 					<a>Info</a>
@@ -95,10 +95,7 @@ const NavBar = ({ oneproject }) => {
 						background-color: white;
 						height: 100vh;
 						padding-left: 5%;
-						padding
 					}
-
-					
 				`}
 			</style>
 		</>

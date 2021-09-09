@@ -44,15 +44,17 @@ const projects = ({ portfolioprojects }) => {
 						/>
 					))}
 				</div>
-				<Masonry
-					breakpointCols={breakpointColumnsObj}
-					className="my-masonry-grid"
-					columnClassName="my-masonry-grid_column"
-				>
-					{portfolioprojects.map((project) => (
-						<ProjectCard key={project.sys.id} portfolioProject={project} />
-					))}
-				</Masonry>
+				<div className="projects-overview">
+					<Masonry
+						breakpointCols={breakpointColumnsObj}
+						className="my-masonry-grid"
+						columnClassName="my-masonry-grid_column"
+					>
+						{portfolioprojects.map((project) => (
+							<ProjectCard key={project.sys.id} portfolioProject={project} />
+						))}
+					</Masonry>
+				</div>
 			</div>
 		</>
 	);

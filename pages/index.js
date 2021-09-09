@@ -11,16 +11,17 @@ export default function Hero() {
 				<title>Ray Atelier | Home </title>
 			</Head>
 			<div className="landing-page">
-				<div className="logo-front">
+				{/* <div className="logo-front">
 					<Image
 						src="/RAY_logga.svg"
 						alt="hej"
-						width={300}
-						height={300}
+						width={200}
+						height={200}
+
 						// objectFit="cover"
 						// layout="fill"
 					/>
-				</div>
+				</div> */}
 				<div className="hero-img-container">
 					<Image
 						src="/borg.jpg"
