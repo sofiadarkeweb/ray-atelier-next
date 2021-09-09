@@ -34,25 +34,15 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/about.js"
     ],
-    "/clients": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/clients.js"
-    ],
-    "/contact": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/contact.js"
-    ],
     "/next/dist/pages/_error": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/pages/next/dist/pages/_error.js"
     ],
-    "/projects": [
+    "/projects/[slug]": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/projects.js"
+      "static/chunks/pages/projects/[slug].js"
     ]
   },
   "ampFirstPages": []
