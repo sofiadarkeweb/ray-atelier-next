@@ -4,7 +4,8 @@ module.exports = {
 	images: {
 		domains: ["picsum.photos", "images.ctfassets.net"],
 	},
-	assetPrefix: !debug ? "ray-atelier" : "",
+	reactStrictMode: true,
+	// assetPrefix: !debug ? "ray-atelier" : "",
 };
 
 // const withVideos = require("next-videos");
