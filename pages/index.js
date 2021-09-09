@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import NavBar from "../components/NavBar";
+import "../styles/globals.css";
 // import video from "../public/tiger_short.mp4";
 
 export default function Hero() {
