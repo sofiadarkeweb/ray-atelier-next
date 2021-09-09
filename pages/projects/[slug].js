@@ -1,5 +1,6 @@
 import { createClient } from "contentful";
 import Image from "next/image";
+import Link from "next/link";
 import Masonry from "react-masonry-css";
 
 const client = createClient({
@@ -44,9 +45,17 @@ export default function ProjectDetails({ portfolioProject }) {
 		500: 1,
 	};
 
-	const { projectTitle, description, year, featuredImage, projectImages } =
-		portfolioProject.fields;
-	// console.log(portfolioProject);
+	const {
+		projectTitle,
+		description,
+		year,
+		featuredImage,
+		projectImages,
+		slug,
+		linkNext,
+	} = portfolioProject.fields;
+
+	console.log({ portfolioProject });
 
 	return (
 		<div className="project-page">
@@ -74,7 +83,6 @@ export default function ProjectDetails({ portfolioProject }) {
 				className="my-masonry-grid"
 				columnClassName="my-masonry-grid_column"
 			>
-				{/* console.log({projectImages}) */}
 				{projectImages &&
 					projectImages.map((img) => (
 						// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
@@ -84,11 +92,19 @@ export default function ProjectDetails({ portfolioProject }) {
 								src={"https:" + img.fields.file.url}
 								width={img.fields.file.details.image.width}
 								height={img.fields.file.details.image.height}
+								// objectFit="contain"
 							/>
 							<span className="caption">{img.fields.description}</span>
 						</div>
 					))}
 			</Masonry>
+			{linkNext !== undefined && (
+				<Link key={linkNext.sys.id} href={"/projects/" + linkNext.fields.slug}>
+					<a className="next-link">
+						Similar projects: {linkNext.fields.projectTitle}
+					</a>
+				</Link>
+			)}
 		</div>
 	);
 }

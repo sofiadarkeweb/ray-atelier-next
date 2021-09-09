@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import NavBar from "../components/NavBar";
+// import video from "../public/tiger_short.mp4";
 
 export default function Hero() {
 	return (
@@ -27,6 +28,17 @@ export default function Hero() {
 						layout="fill"
 					/>
 				</div>
+				{/* <video autoPlay loop style={{ width: "500px", height: "500px" }}>
+					<source src="/tiger_short.mp4" />
+				</video> */}
+				{/* <div>
+					<video
+						src={require("../public/tiger_short.mp4")}
+						autoPlay
+						loop
+						style={{ width: "500px", height: "500px" }}
+					/>
+				</div> */}
 			</div>
 		</>
 	);

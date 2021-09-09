@@ -71,8 +71,8 @@ const NavBar = ({ oneproject }) => {
 				<Hamburger />
 			</div>
 			<div className="mobile-links-open" onClick={toggleHamburger}>
-				<Link className="mobile-link" href="/projects">
-					<a>Work</a>
+				<Link href="/projects">
+					<a className="mobile-link">Work</a>
 				</Link>
 				<Link className="mobile-link" href="/about">
 					<a>Info</a>
@@ -90,14 +90,15 @@ const NavBar = ({ oneproject }) => {
 					.mobile-links-open {
 						display: ${hamburgerOpen ? "flex" : "none"};
 						flex-direction: column;
-						background-color: blue;
-						height: 90vh;
+						margin: 0px;
+						justify-content: left;
+						background-color: white;
+						height: 100vh;
+						padding-left: 5%;
+						padding
 					}
 
-					.mobile-link {
-						text-align: left;
-						background-color: red;
-					}
+					
 				`}
 			</style>
 		</>
