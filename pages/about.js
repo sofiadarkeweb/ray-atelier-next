@@ -1,6 +1,7 @@
 import React from "react";
 import { createClient } from "contentful";
 import NavBar from "../components/NavBar";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export async function getStaticProps() {
 	const client = createClient({
@@ -18,11 +19,18 @@ export async function getStaticProps() {
 }
 
 const about = ({ othertexts }) => {
-	console.log(othertexts);
+	const options = {
+		renderText: (text) => {
+			return text.split("\n").reduce((children, textSegment, index) => {
+				return [...children, index > 0 && <br key={index} />, textSegment];
+			}, []);
+		},
+	};
+
 	return (
 		<>
 			<div className="text-section">
-				<p>{othertexts[0].fields.about}</p>
+				<p>{documentToReactComponents(othertexts[0].fields.about, options)}</p>
 			</div>
 		</>
 	);

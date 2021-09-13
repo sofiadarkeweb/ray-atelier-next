@@ -162,9 +162,9 @@ footer {
 .nav-project-list {
 	display: flex;
 	padding-left: 5%;
-	padding-right: 50%;
+	padding-right: 30%;
 	padding-bottom: 1rem;
-	margin-top: 3vh;
+	/* margin-top: 3vh; */
 
 	/* padding-top: 4rem; */
 	flex-wrap: wrap;
