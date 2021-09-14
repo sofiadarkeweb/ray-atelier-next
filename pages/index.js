@@ -24,7 +24,7 @@ export default function Hero() {
 				</div>
 				<div className="hero-img-container">
 					<Image
-						src="/borg.jpg"
+						src="/blomma.jpg"
 						alt="Ray cover image"
 						objectFit="cover"
 						layout="fill"

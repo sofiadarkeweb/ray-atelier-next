@@ -9,7 +9,7 @@ import Hamburger from "./Hamburger";
 // console.log(res);
 // setRespons(res);
 
-const NavBar = ({ oneproject }) => {
+const NavBar = () => {
 	const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
 	const toggleHamburger = () => {
@@ -92,7 +92,7 @@ const NavBar = ({ oneproject }) => {
 						flex-direction: column;
 						margin: 0px;
 						justify-content: left;
-						background-color: white;
+						background-color: pink;
 						height: 100vh;
 						padding-left: 5%;
 						padding-top: 2rem;

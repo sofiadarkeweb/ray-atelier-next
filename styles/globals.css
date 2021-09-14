@@ -108,7 +108,7 @@ footer {
 }
 
 .logo-front {
-	z-index: 2;
+	z-index: 1;
 	position: absolute;
 	margin: 0;
 	width: 100%;
@@ -131,6 +131,7 @@ footer {
 
 .hero-img-container {
 	animation: 0.5s ease-out 0s 1 fadeIn;
+	z-index: -1;
 }
 
 /*WORK / PROJECT PAGE*/
@@ -326,11 +327,11 @@ footer {
 	}
 
 	.logo-front {
-		height: 10%;
+		/* height: 10%; */
 		width: 100%;
-		display: flex;
+		display: none;
 		justify-content: center;
-		margin-top: -3%;
+		/* margin-top: -3%; */
 	}
 
 	.text-section {
