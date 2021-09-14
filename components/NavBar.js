@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { createClient } from "contentful";
 import NavProjectList from "./NavProjectList";
 import Hamburger from "./Hamburger";
@@ -15,34 +16,6 @@ const NavBar = () => {
 	const toggleHamburger = () => {
 		setHamburgerOpen(!hamburgerOpen);
 	};
-	//might use
-	// const [respons, setRespons] = useState("");
-
-	// const { projectTitle } = respons.fields;
-
-	//need to use useeffect to call the function.
-
-	//might use?
-	// useEffect(() => {
-	// 	async () => {
-	// 		const res = fetchData();
-	// 		setRespons(res);
-	// 	};
-	// }, []);
-
-	// const { y, x, scrollDirection } = useScroll();
-
-	// const styles = {
-	// 	active: {
-	// 		visibility: "visible",
-	// 		transition: "all 0.5s",
-	// 	},
-	// 	hidden: {
-	// 		visibility: "hidden",
-	// 		transition: "all 0.5s",
-	// 		transform: "translateY(-100%)",
-	// 	},
-	// };
 
 	return (
 		<>
@@ -67,9 +40,24 @@ const NavBar = () => {
 					<a className="nav-bar-items">Contact</a>
 				</Link>
 			</nav>
-			<div className="hamburger-btn" onClick={toggleHamburger}>
-				<Hamburger />
+			<div>
+				{/* <div className="logo-mobile">
+					<Image
+						src="/RAY_logga.svg"
+						alt="Ray Atelier logo mobile"
+						width={40}
+						height={40}
+
+						// objectFit="cover"
+						// layout="fill"
+					/>
+				</div> */}
+
+				<div className="hamburger-btn" onClick={toggleHamburger}>
+					<Hamburger />
+				</div>
 			</div>
+
 			<div className="mobile-links-open" onClick={toggleHamburger}>
 				<Link className="mobile-link" href="/projects">
 					<a>Work</a>
@@ -83,6 +71,9 @@ const NavBar = () => {
 				<Link className="mobile-link" href="/contact">
 					<a>Contact</a>
 				</Link>
+				<Link className="mobile-link" href="/">
+					<a>Home</a>
+				</Link>
 			</div>
 
 			<style jsx>
@@ -92,7 +83,7 @@ const NavBar = () => {
 						flex-direction: column;
 						margin: 0px;
 						justify-content: left;
-						background-color: pink;
+						background-color: white;
 						height: 100vh;
 						padding-left: 5%;
 						padding-top: 2rem;

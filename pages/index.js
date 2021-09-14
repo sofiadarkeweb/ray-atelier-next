@@ -14,7 +14,7 @@ export default function Hero() {
 				<div className="logo-front">
 					<Image
 						src="/RAY_logga.svg"
-						alt="hej"
+						alt="Ray logo landing page"
 						width={300}
 						height={300}
 

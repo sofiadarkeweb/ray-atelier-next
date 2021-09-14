@@ -1,12 +1,21 @@
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 const Hamburger = () => {
 	return (
 		<div className="mobile-nav">
-			<Link href="/" className="mobile-title">
-				<a>Ray Atelier</a>
-			</Link>
+			<div className="logo-mobile">
+				<Image
+					src="/RAY_logga.svg"
+					alt="Ray Atelier logo mobile"
+					width={40}
+					height={40}
+
+					// objectFit="cover"
+					// layout="fill"
+				/>
+			</div>
 			<div className="hamburger">
 				<div className="line"></div>
 				<div className="line"></div>

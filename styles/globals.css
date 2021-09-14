@@ -37,7 +37,7 @@ header {
 }
 
 main {
-	padding-bottom: 3rem;
+	padding-bottom: 5rem;
 }
 
 .nav-bar {
@@ -112,7 +112,7 @@ footer {
 	position: absolute;
 	margin: 0;
 	width: 100%;
-	height: 100%;
+	height: 93vh;
 	display: flex;
 	justify-content: center;
 	pointer-events: none;
@@ -401,10 +401,14 @@ footer {
 		height: 3rem;
 	}
 
+	.logo-mobile {
+		padding-left: 5%;
+		padding-top: 2%;
+	}
+
 	.hamburger {
 		cursor: pointer;
 		margin: 0px;
-
 		padding-right: 4%;
 		/* position: absolute; */
 		/* right: 5%;
@@ -440,7 +444,7 @@ footer {
 	} */
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
 	.feat-img {
 		height: 30vh;
 	}
