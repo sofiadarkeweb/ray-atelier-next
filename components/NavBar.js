@@ -21,6 +21,7 @@ const NavBar = () => {
 		<>
 			<nav
 				className="nav-bar"
+				id="foo"
 				// style={scrollDirection === "down" ? styles.active : styles.hidden}
 			>
 				<Link href="/projects">

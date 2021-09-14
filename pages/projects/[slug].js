@@ -2,7 +2,10 @@ import { createClient } from "contentful";
 import Image from "next/image";
 import Link from "next/link";
 import Masonry from "react-masonry-css";
-import NavProjectList from "../../components/NavProjectList";
+// import NavProjectList from "../../components/NavProjectList";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const client = createClient({
 	space: process.env.CONTENFUL_SPACE_ID,
@@ -55,9 +58,9 @@ export default function ProjectDetails({
 	// 	(element) => element == portfolioProject.indexOf()
 	// );
 
-	const index = portfolioprojects.indexOf(portfolioProject);
-
-	console.log("this is the" + index);
+	useEffect(() => {
+		Aos.init({ duration: 1000 });
+	}, []);
 
 	const {
 		projectTitle,
@@ -65,8 +68,7 @@ export default function ProjectDetails({
 		year,
 		featuredImage,
 		projectImages,
-
-		linkNext,
+		similarProjects,
 	} = portfolioProject.fields;
 
 	// console.log({ portfolioProject });
@@ -81,16 +83,12 @@ export default function ProjectDetails({
 					objectFit="contain"
 				/>
 			</div>
-			<div className="project-content">
+			<div className="project-content" data-aos="fade-up">
 				<p>{year}</p>
 				<h2>{projectTitle}</h2>
+				<br />
 				<p>{description}</p>
 			</div>
-			{/* <Image
-				src={"https:" + projectImages[0].fields.file.url}
-				width={projectImages[0].fields.file.details.image.width}
-				height={projectImages[0].fields.file.details.image.height}
-			/> */}
 
 			<Masonry
 				breakpointCols={breakpointColumnsObj}
@@ -100,25 +98,59 @@ export default function ProjectDetails({
 				{projectImages &&
 					projectImages.map((img) => (
 						// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
-						<div key={img.sys.id} className="masonry-img">
+						<div key={img.sys.id} className="masonry-img" data-aos="fade-up">
 							<Image
 								src={"https:" + img.fields.file.url}
 								width={img.fields.file.details.image.width}
 								height={img.fields.file.details.image.height}
+
 								// objectFit="contain"
 							/>
 							<span className="caption">{img.fields.description}</span>
 						</div>
 					))}
 			</Masonry>
-			{/* {linkNext !== undefined && (
-				<Link key={linkNext.sys.id} href={"/projects/" + linkNext.fields.slug}>
+			{/* {similarProjects !== undefined && (
+				<Link
+					key={similarProjects.sys.id}
+					href={"/projects/" + similarProjects.fields.slug}
+				>
 					<a className="next-link">
-						Similar projects: {linkNext.fields.projectTitle}
+						Similar projects: {similarProjects.fields.projectTitle}
 					</a>
 				</Link>
 			)} */}
-			<span className="nav-project-list">All projects: </span>
+			<span className="next-link">Similar projects:</span>
+			<div className="similar-grid">
+				{similarProjects !== undefined &&
+					similarProjects.map((similar) => (
+						// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
+						<Link
+							key={similar.sys.id}
+							href={"/projects/" + similar.fields.slug}
+						>
+							<div className="similar-object">
+								<div className="thumbnail-similar">
+									<Image
+										src={"https:" + similar.fields.thumbnail.fields.file.url}
+										width={
+											similar.fields.thumbnail.fields.file.details.image.width
+										}
+										height={
+											similar.fields.thumbnail.fields.file.details.image.height
+										}
+										objectFit="contain"
+										// className="thumbnail-image"
+									/>
+								</div>
+
+								<a className="next-link">{similar.fields.projectTitle}</a>
+							</div>
+						</Link>
+					))}
+			</div>
+
+			{/* <span className="nav-project-list">All projects: </span>
 			<div className="nav-project-list">
 				{portfolioprojects.map((project) => (
 					<NavProjectList
@@ -127,7 +159,7 @@ export default function ProjectDetails({
 						title={project.fields.projectTitle}
 					/>
 				))}
-			</div>
+			</div> */}
 		</div>
 	);
 }

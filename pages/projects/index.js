@@ -2,11 +2,14 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ProjectCard from "../../components/ProjectCard";
-import NavBar from "../../components/NavBar";
+
 import NavProjectList from "../../components/NavProjectList";
 // import { getStaticProps } from "../clients";
 import { createClient } from "contentful";
 import Masonry from "react-masonry-css";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export async function getStaticProps() {
 	const client = createClient({
@@ -32,13 +35,17 @@ const projects = ({ portfolioprojects }) => {
 		700: 2,
 		500: 1,
 	};
+
+	useEffect(() => {
+		Aos.init({ duration: 2000 });
+	}, []);
 	// console.log(title);
 	// console.log(portfolioprojects[0].fields.projectTitle);
 	return (
 		<>
 			<div>
-				<div className="bar"></div>
-				<div className="nav-project-list">
+				{/* <div className="bar"></div> */}
+				<div className="nav-project-list" data-aos="fade-down">
 					{portfolioprojects.map((project) => (
 						<NavProjectList
 							key={project.sys.id}

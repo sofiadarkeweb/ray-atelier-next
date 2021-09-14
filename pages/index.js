@@ -1,17 +1,23 @@
 import Head from "next/head";
 import Image from "next/image";
-import NavBar from "../components/NavBar";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 // import video from "../public/tiger_short.mp4";
 
 export default function Hero() {
+	useEffect(() => {
+		Aos.init({ duration: 1000 });
+	}, []);
+
 	return (
 		<>
 			<Head>
 				<title>Ray Atelier | Home </title>
 			</Head>
 			<div className="landing-page">
-				<div className="logo-front">
+				<div className="logo-front" data-aos="fade-up">
 					<Image
 						src="/RAY_logga.svg"
 						alt="Ray logo landing page"
@@ -22,7 +28,7 @@ export default function Hero() {
 						// layout="fill"
 					/>
 				</div>
-				<div className="hero-img-container">
+				<div className="hero-img-container" data-aos="fade-up">
 					<Image
 						src="/blomma.jpg"
 						alt="Ray cover image"
