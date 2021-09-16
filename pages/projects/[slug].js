@@ -92,8 +92,8 @@ export default function ProjectDetails({
 
 			<Masonry
 				breakpointCols={breakpointColumnsObj}
-				className="my-masonry-grid"
-				columnClassName="my-masonry-grid_column"
+				className="my-masonry-grid-more"
+				columnClassName="my-masonry-grid_column-more"
 			>
 				{projectImages &&
 					projectImages.map((img) => (
@@ -120,7 +120,7 @@ export default function ProjectDetails({
 					</a>
 				</Link>
 			)} */}
-			<span className="next-link">Similar projects:</span>
+			<span className="similar-heading">Similar projects:</span>
 			<div className="similar-grid">
 				{similarProjects !== undefined &&
 					similarProjects.map((similar) => (
