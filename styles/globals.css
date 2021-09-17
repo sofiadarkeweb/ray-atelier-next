@@ -237,6 +237,14 @@ footer {
 	background-size: cover;
 }
 
+.landing-video {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -1;
+}
+
 .project-content {
 	padding-left: 5%;
 	padding-right: 5%;
