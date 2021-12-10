@@ -32,6 +32,16 @@ const about = ({ othertexts }) => {
 			<div className="text-section">
 				<p>{documentToReactComponents(othertexts[0].fields.about, options)}</p>
 			</div>
+			<div className="text-section">
+				<div>
+					<p>clients</p>
+					{othertexts[0].fields.clients.map((client) => (
+						<p style={{ display: "inline" }} key={client}>
+							{client},
+						</p>
+					))}
+				</div>
+			</div>
 		</>
 	);
 };

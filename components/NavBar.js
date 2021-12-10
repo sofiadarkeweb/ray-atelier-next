@@ -28,15 +28,15 @@ const NavBar = () => {
 					<a className="nav-bar-items">Work</a>
 				</Link>
 
-				<Link href="/about">
+				{/* <Link href="/about">
 					<a className="nav-bar-items">Info</a>
-				</Link>
-				<Link href="/">
+				</Link> */}
+				<Link href="/about">
 					<a className="nav-bar-items">Ray Atelier</a>
 				</Link>
-				<Link href="/clients">
+				{/* <Link href="/clients">
 					<a className="nav-bar-items">Clients</a>
-				</Link>
+				</Link> */}
 				<Link href="/contact">
 					<a className="nav-bar-items">Contact</a>
 				</Link>

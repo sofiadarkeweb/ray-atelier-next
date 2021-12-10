@@ -3,6 +3,7 @@ import Image from "next/image";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Link from "next/link";
 
 // import video from "../public/tiger_short.mp4";
 
@@ -16,19 +17,22 @@ export default function Hero() {
 			<Head>
 				<title>Ray Atelier | Home </title>
 			</Head>
-			<div className="landing-page">
-				<div className="logo-front" data-aos="fade-up">
-					<Image
-						src="/RAY_logga.svg"
-						alt="Ray logo landing page"
-						width={300}
-						height={300}
+			<Link href="/projects">
+				<a>
+					<div className="landing-page">
+						<div className="logo-front" data-aos="fade-up">
+							<Image
+								src="/RAY_logga.svg"
+								alt="Ray logo landing page"
+								width={300}
+								height={300}
 
-						// objectFit="cover"
-						// layout="fill"
-					/>
-				</div>
-				{/* <div className="hero-img-container" data-aos="fade-up">
+								// objectFit="cover"
+								// layout="fill"
+							/>
+						</div>
+
+						{/* <div className="hero-img-container" data-aos="fade-up">
 					<Image
 						src="/blomma.jpg"
 						alt="Ray cover image"
@@ -36,19 +40,14 @@ export default function Hero() {
 						layout="fill"
 					/>
 				</div> */}
-				{/* style={{ width: "500px", height: "500px" }} */}
-				<video autoPlay muted loop className="landing-video">
-					<source src="/tiger_short_2.mp4" type="video/mp4" />
-				</video>
-				{/* <div>
-					<video
-						src={require("../public/tiger_short.mp4")}
-						autoPlay
-						loop
-						style={{ width: "500px", height: "500px" }}
-					/>
-				</div> */}
-			</div>
+						{/* style={{ width: "500px", height: "500px" }} */}
+
+						<video autoPlay muted loop className="landing-video">
+							<source src="/tiger_short_2.mp4" type="video/mp4" />
+						</video>
+					</div>
+				</a>
+			</Link>
 		</>
 	);
 }

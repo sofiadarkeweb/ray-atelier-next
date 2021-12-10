@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useMemo } from "react";
+
+// wrap in memo. use memo
 
 const Footer = () => {
-	let thisYear = new Date().getFullYear();
+	let thisYear = useMemo(() => new Date().getFullYear());
+	console.log("hej");
 	return (
 		<footer>
 			<p>Ray Atelier {thisYear}</p>

@@ -45,7 +45,7 @@ const projects = ({ portfolioprojects }) => {
 		<>
 			<div>
 				{/* <div className="bar"></div> */}
-				<div className="nav-project-list" data-aos="fade-down">
+				{/* <div className="nav-project-list" data-aos="fade-down">
 					{portfolioprojects.map((project) => (
 						<NavProjectList
 							key={project.sys.id}
@@ -53,7 +53,7 @@ const projects = ({ portfolioprojects }) => {
 							title={project.fields.projectTitle}
 						/>
 					))}
-				</div>
+				</div> */}
 				<div className="projects-overview">
 					<Masonry
 						breakpointCols={breakpointColumnsObj}

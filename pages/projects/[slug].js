@@ -17,7 +17,7 @@ export const getStaticPaths = async () => {
 		content_type: "portfolioProject",
 	});
 	const paths = res.items.map((item) => {
-		//why items?
+	
 		return {
 			params: { slug: item.fields.slug },
 		};

@@ -9,8 +9,11 @@
 
 body {
 	background: white;
-	font-family: "Cormorant Garamond", serif;
-	font-size: 16px;
+	/* font-family: "Cormorant Garamond", serif; */
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 1rem;
 }
 
 html {
@@ -51,6 +54,10 @@ main {
 	display: flex;
 	opacity: 1;
 	background-color: white;
+	text-transform: uppercase;
+	font-size: 0.9em;
+	letter-spacing: 0.05rem;
+
 	animation: 1s ease-out 0s 1 slideInFromTop;
 }
 
@@ -108,7 +115,7 @@ footer {
 }
 
 .logo-front {
-	z-index: 1;
+	z-index: 1000;
 	position: absolute;
 	margin: 0;
 	width: 100%;
@@ -116,8 +123,13 @@ footer {
 	display: flex;
 	justify-content: center;
 	pointer-events: none;
+	mix-blend-mode: overlay;
+	mix-blend-mode: multiply;
 	animation: 1s ease-out 0s 1 fadeIn;
+	color: yellow;
+	color: white;
 	/* border: 1px red solid; */
+	/* background-color: white; */
 }
 
 @keyframes fadeIn {
@@ -138,15 +150,16 @@ footer {
 
 .text-section {
 	padding-left: 5%;
-	padding-right: 30%;
+	padding-right: 50%;
 	padding-top: 3rem;
 	animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .card {
 	margin-top: 2rem;
-	padding-right: 2.5%;
-	padding-left: 2.5%;
+	padding-right: 8%;
+	padding-left: 8%;
+	padding-bottom: 5%;
 	animation: 1s ease-out 0s 1 fadeIn;
 	/* margin-right: 5%;
 	margin-left: 5%; */
@@ -155,7 +168,7 @@ footer {
 .info-text {
 	color: rgb(58, 58, 58);
 	font-size: 0.8em;
-	line-height: 1em;
+	line-height: 0.8rem;
 }
 
 /* NAVMENY PROJECTS*/
