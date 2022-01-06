@@ -17,7 +17,6 @@ export const getStaticPaths = async () => {
 		content_type: "portfolioProject",
 	});
 	const paths = res.items.map((item) => {
-	
 		return {
 			params: { slug: item.fields.slug },
 		};
@@ -85,43 +84,36 @@ export default function ProjectDetails({
 			</div>
 			<div className="project-content" data-aos="fade-up">
 				<p>{year}</p>
-				<h2>{projectTitle}</h2>
+				<p className="project-title">{projectTitle}</p>
 				<br />
 				<p>{description}</p>
 			</div>
 
-			<Masonry
-				breakpointCols={breakpointColumnsObj}
-				className="my-masonry-grid-more"
-				columnClassName="my-masonry-grid_column-more"
-			>
-				{projectImages &&
-					projectImages.map((img) => (
-						// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
-						<div key={img.sys.id} className="masonry-img" data-aos="fade-up">
-							<Image
-								src={"https:" + img.fields.file.url}
-								width={img.fields.file.details.image.width}
-								height={img.fields.file.details.image.height}
-
-								// objectFit="contain"
-							/>
-							<span className="caption">{img.fields.description}</span>
-						</div>
-					))}
-			</Masonry>
-			{/* {similarProjects !== undefined && (
-				<Link
-					key={similarProjects.sys.id}
-					href={"/projects/" + similarProjects.fields.slug}
+			<div className="ind-projects-grid">
+				<Masonry
+					breakpointCols={breakpointColumnsObj}
+					className="my-masonry-grid-more"
+					columnClassName="my-masonry-grid_column-more"
 				>
-					<a className="next-link">
-						Similar projects: {similarProjects.fields.projectTitle}
-					</a>
-				</Link>
-			)} */}
-			<span className="similar-heading">Similar projects:</span>
-			<div className="similar-grid">
+					{projectImages &&
+						projectImages.map((img) => (
+							// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
+							<div key={img.sys.id} className="masonry-img" data-aos="fade-up">
+								<Image
+									src={"https:" + img.fields.file.url}
+									width={img.fields.file.details.image.width}
+									height={img.fields.file.details.image.height}
+
+									// objectFit="contain"
+								/>
+								<span className="caption">{img.fields.description}</span>
+							</div>
+						))}
+				</Masonry>
+			</div>
+
+			{/* <span className="similar-heading">Similar projects:</span> */}
+			{/* <div className="similar-grid">
 				{similarProjects !== undefined &&
 					similarProjects.map((similar) => (
 						// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
@@ -148,17 +140,6 @@ export default function ProjectDetails({
 							</div>
 						</Link>
 					))}
-			</div>
-
-			{/* <span className="nav-project-list">All projects: </span>
-			<div className="nav-project-list">
-				{portfolioprojects.map((project) => (
-					<NavProjectList
-						key={project.sys.id}
-						slug={project.fields.slug}
-						title={project.fields.projectTitle}
-					/>
-				))}
 			</div> */}
 		</div>
 	);

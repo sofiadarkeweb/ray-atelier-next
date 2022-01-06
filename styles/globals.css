@@ -114,6 +114,14 @@ footer {
 .landing-page {
 }
 
+.landing-video {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -1;
+}
+
 .logo-front {
 	z-index: 1000;
 	position: absolute;
@@ -237,6 +245,7 @@ footer {
 .feat-img {
 	/* min-width: 100%; */
 	min-width: 100vw;
+	padding: 5%;
 	width: 100%;
 	height: 95vh;
 	display: flex;
@@ -250,14 +259,6 @@ footer {
 	background-size: cover;
 }
 
-.landing-video {
-	object-fit: cover;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	z-index: -1;
-}
-
 .project-content {
 	padding-left: 5%;
 	padding-right: 5%;
@@ -268,6 +269,17 @@ footer {
 .projects-overview {
 	padding-left: 1.5%;
 	padding-right: 1.5%;
+}
+
+.project-title {
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+}
+
+.ind-projects-grid {
+	padding: 1.5%;
+	padding-top: 0;
 }
 
 .my-masonry-grid {
@@ -285,23 +297,20 @@ footer {
 	display: -webkit-box; /* Not needed if autoprefixing */
 	display: -ms-flexbox; /* Not needed if autoprefixing */
 	display: flex;
-	/* margin-right: -30px; */
 	width: auto;
-	/* margin: 5%; */
-	margin-left: 1.5%;
-	margin-right: 1.5%;
 	padding-bottom: 4rem;
 }
 
 .my-masonry-grid_column-more {
-	/* margin-left: 1%;
-	margin-right: 1%; */
+	margin-left: 3%;
+	margin-right: 3%;
 	/* background-clip: padding-box; */
 }
 
 .masonry-img {
 	/* margin-bottom: -5px; */
 	margin: 0.5rem;
+	padding-bottom: 4%;
 }
 
 .caption {
@@ -387,7 +396,7 @@ footer {
 
 @media screen and (max-width: 500px) {
 	body {
-		font-size: 20px;
+		/* font-size: 20px; */
 	}
 
 	* {
@@ -411,8 +420,8 @@ footer {
 	.card {
 		margin-top: 2rem;
 
-		/* margin-right: -10px;
-		margin-left: -10px; */
+		margin-right: -10px;
+		margin-left: -10px;
 	}
 
 	.info-text {
