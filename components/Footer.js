@@ -4,10 +4,10 @@ import React, { useMemo } from "react";
 
 const Footer = () => {
 	let thisYear = useMemo(() => new Date().getFullYear());
-	console.log("hej");
+
 	return (
 		<footer>
-			<p>Ray Atelier {thisYear}</p>
+			<p>Copyright Ray Atelier {thisYear}</p>
 			{/* <p>Code by Sofia Darke</p> */}
 		</footer>
 	);
