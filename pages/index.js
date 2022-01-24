@@ -21,7 +21,7 @@ export default function Hero() {
 				<a>
 					<div className="landing-page">
 						<div className="logo-front" data-aos="fade-up">
-							<Image
+							{/* <Image
 								src="/RAY_logga.svg"
 								alt="Ray logo landing page"
 								width={300}
@@ -29,7 +29,9 @@ export default function Hero() {
 
 								// objectFit="cover"
 								// layout="fill"
-							/>
+							/> */}
+
+							<p>Ray Atelier</p>
 						</div>
 
 						{/* <div className="hero-img-container" data-aos="fade-up">
@@ -40,7 +42,6 @@ export default function Hero() {
 						layout="fill"
 					/>
 				</div> */}
-						{/* style={{ width: "500px", height: "500px" }} */}
 
 						<video autoPlay muted loop className="landing-video">
 							<source src="/tiger_short_2.mp4" type="video/mp4" />
