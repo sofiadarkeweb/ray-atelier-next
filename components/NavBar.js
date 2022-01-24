@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { createClient } from "contentful";
-import NavProjectList from "./NavProjectList";
-import Hamburger from "./Hamburger";
+// import NavProjectList from "./NavProjectList";
+// import Hamburger from "./Hamburger";
 
 //need to add then to resvole promise.
 
@@ -11,11 +11,11 @@ import Hamburger from "./Hamburger";
 // setRespons(res);
 
 const NavBar = () => {
-	const [hamburgerOpen, setHamburgerOpen] = useState(false);
+	// const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
-	const toggleHamburger = () => {
-		setHamburgerOpen(!hamburgerOpen);
-	};
+	// const toggleHamburger = () => {
+	// 	setHamburgerOpen(!hamburgerOpen);
+	// };
 
 	return (
 		<>
@@ -54,12 +54,12 @@ const NavBar = () => {
 					/>
 				</div> */}
 
-				<div className="hamburger-btn" onClick={toggleHamburger}>
+				{/* <div className="hamburger-btn" onClick={toggleHamburger}>
 					<Hamburger />
-				</div>
+				</div> */}
 			</div>
 
-			<div className="mobile-links-open" onClick={toggleHamburger}>
+			{/* <div className="mobile-links-open" onClick={toggleHamburger}>
 				<Link className="mobile-link" href="/projects">
 					<a>Work</a>
 				</Link>
@@ -75,9 +75,9 @@ const NavBar = () => {
 				<Link className="mobile-link" href="/">
 					<a>Home</a>
 				</Link>
-			</div>
+			</div> */}
 
-			<style jsx>
+			{/* <style jsx>
 				{`
 					.mobile-links-open {
 						display: ${hamburgerOpen ? "flex" : "none"};
@@ -91,7 +91,7 @@ const NavBar = () => {
 						z-index: 4000;
 					}
 				`}
-			</style>
+			</style> */}
 		</>
 	);
 };
