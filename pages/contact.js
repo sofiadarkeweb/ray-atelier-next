@@ -30,9 +30,7 @@ const contact = ({ othertexts }) => {
 	return (
 		<>
 			<div className="text-section">
-				<p>
-					{documentToReactComponents(othertexts[0].fields.contact, options)}
-				</p>
+				{documentToReactComponents(othertexts[0].fields.contact, options)}
 			</div>
 		</>
 	);

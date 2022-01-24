@@ -1,6 +1,4 @@
-import React from "react";
 import { createClient } from "contentful";
-import NavBar from "../components/NavBar";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export async function getStaticProps() {
@@ -30,15 +28,15 @@ const about = ({ othertexts }) => {
 	return (
 		<>
 			<div className="text-section">
-				<p>{documentToReactComponents(othertexts[0].fields.about, options)}</p>
+				{documentToReactComponents(othertexts[0].fields.about, options)}
 			</div>
 			<div className="text-section">
 				<div>
 					<p>Our clients</p>
 					{othertexts[0].fields.clients.map((client) => (
-						<p style={{ display: "inline" }} key={client}>
+						<div style={{ display: "inline" }} key={client}>
 							{client},
-						</p>
+						</div>
 					))}
 				</div>
 			</div>
