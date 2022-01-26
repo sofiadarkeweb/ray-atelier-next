@@ -242,9 +242,10 @@ footer {
 .feat-img {
 	/* min-width: 100%; */
 	min-width: 100vw;
-	padding: 5%;
+
+	/* padding: 5%; */
 	width: 100%;
-	height: 95vh;
+	/* height: 95vh; */
 	display: flex;
 	/* background-position: center center; */
 	justify-content: center;
@@ -253,14 +254,17 @@ footer {
 	overflow: hidden;
 	object-position: center;
 	margin: 0;
-	background-size: cover;
+	margin-top: 2rem;
+	padding-right: 5%;
+	padding-left: 5%;
+	/* background-size: cover; */
 }
 
 .project-content {
 	padding-left: 5%;
 	padding-right: 5%;
 	margin-top: 2rem;
-	margin-bottom: 4rem;
+	margin-bottom: 2rem;
 }
 
 .projects-overview {
@@ -370,7 +374,7 @@ footer {
 	.feat-img {
 		/* min-width: 100%; */
 		min-width: 100vw;
-		height: 55vh;
+		/* height: 55vh; */
 		display: block;
 	}
 
@@ -397,10 +401,6 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
-	body {
-		/* font-size: 20px; */
-	}
-
 	* {
 		margin: 0;
 	}
@@ -416,6 +416,13 @@ footer {
 		justify-content: center;
 	
 	} */
+
+	.project-content {
+		padding-left: 7%;
+		padding-right: 7%;
+
+		margin-bottom: 1rem;
+	}
 
 	.text-section {
 		padding-left: 7%;
@@ -435,7 +442,9 @@ footer {
 
 	.feat-img {
 		width: 100vw;
-		height: 45vh;
+		padding-right: 7%;
+		padding-left: 7%;
+		/* height: 45vh; */
 	}
 
 	.card {
@@ -466,23 +475,8 @@ footer {
 		padding-right: 0;
 	}
 
-	/* .mobile-title {
-		display: none;
-	} */
-
-	/* .mobile-nav {
-		display: flex;
-		width: 100%;
-		background-color: white;
-		align-items: center;
-		justify-content: space-between;
-		height: 3rem;
-	} */
-
 	.logo-mobile {
 		display: none;
-		/* padding-left: 5%;
-		padding-top: 2%; */
 	}
 
 	.hamburger {
@@ -528,8 +522,8 @@ footer {
 	} */
 }
 
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 450px) {
 	.feat-img {
 		height: 30vh;
 	}
-}
+} */
