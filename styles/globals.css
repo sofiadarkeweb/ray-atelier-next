@@ -232,6 +232,13 @@ footer {
 	/* visibility: visible; */
 }
 
+.clients {
+	text-transform: uppercase;
+	font-size: 0.9em;
+	letter-spacing: 0.2em;
+	margin-bottom: 1em;
+}
+
 /*INDIVIDUAL PROJECTS*/
 
 .project-page {
@@ -420,7 +427,6 @@ footer {
 	.project-content {
 		padding-left: 7%;
 		padding-right: 7%;
-
 		margin-bottom: 1rem;
 	}
 
