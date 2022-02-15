@@ -35,7 +35,7 @@ const about = ({ othertexts }) => {
 					<p>OUR CLIENTS</p>
 					{othertexts[0].fields.clients.map((client) => (
 						<div style={{ display: "inline" }} key={client}>
-							{client} |
+							{client} |&nbsp;
 						</div>
 					))}
 				</div>
