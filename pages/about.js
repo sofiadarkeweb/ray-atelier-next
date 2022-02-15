@@ -32,11 +32,9 @@ const about = ({ othertexts }) => {
 			</div>
 			<div className="text-section">
 				<div>
-					<p>OUR CLIENTS</p>
+					<p className="clients">OUR CLIENTS</p>
 					{othertexts[0].fields.clients.map((client) => (
-						<div style={{ display: "inline" }} key={client}>
-							{client} |&nbsp;
-						</div>
+						<div key={client}>{client} &nbsp;</div>
 					))}
 				</div>
 			</div>
@@ -45,3 +43,5 @@ const about = ({ othertexts }) => {
 };
 
 export default about;
+
+// style={{ display: "inline" }}
