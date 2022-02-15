@@ -32,10 +32,10 @@ const about = ({ othertexts }) => {
 			</div>
 			<div className="text-section">
 				<div>
-					<p>Our clients</p>
+					<p>OUR CLIENTS</p>
 					{othertexts[0].fields.clients.map((client) => (
 						<div style={{ display: "inline" }} key={client}>
-							{client}
+							{client} |
 						</div>
 					))}
 				</div>
