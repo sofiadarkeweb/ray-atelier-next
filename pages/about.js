@@ -3,8 +3,8 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 export async function getStaticProps() {
 	const client = createClient({
-		space: process.env.CONTENFUL_SPACE_ID,
-		accessToken: process.env.CONTENFUL_ACCESS_KEY,
+		space: process.env.CONTENTFUL_SPACE_ID,
+		accessToken: process.env.CONTENTFUL_ACCESS_KEY,
 	});
 
 	const res = await client.getEntries({ content_type: "otherTexts" });
