@@ -13,6 +13,7 @@ export async function getStaticProps() {
 		props: {
 			othertexts: res.items,
 		},
+		revalidate: 10,
 	};
 }
 
