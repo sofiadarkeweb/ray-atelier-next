@@ -13,8 +13,8 @@ import { useEffect } from "react";
 
 export async function getStaticProps() {
 	const client = createClient({
-		space: process.env.CONTENTFUL_SPACE_ID,
-		accessToken: process.env.CONTENtFUL_ACCESS_KEY,
+		space: process.env.CONTENFUL_SPACE_ID,
+		accessToken: process.env.CONTENFUL_ACCESS_KEY,
 	});
 
 	const res = await client.getEntries({
@@ -40,19 +40,19 @@ const projects = ({ portfolioprojects }) => {
 		Aos.init({ duration: 2000 });
 	}, []);
 
-	useEffect(() => {
-		// POST request using fetch inside useEffect React hook
-		const requestOptions = {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ title: "React Hooks POST Request Example" }),
-		};
-		fetch("https://reqres.in/api/posts", requestOptions)
-			.then((response) => response.json())
-			.then((data) => setPostId(data.id));
+	// useEffect(() => {
+	// 	// POST request using fetch inside useEffect React hook
+	// 	const requestOptions = {
+	// 		method: "POST",
+	// 		headers: { "Content-Type": "application/json" },
+	// 		body: JSON.stringify({ title: "React Hooks POST Request Example" }),
+	// 	};
+	// 	fetch("https://reqres.in/api/posts", requestOptions)
+	// 		.then((response) => response.json())
+	// 		.then((data) => setPostId(data.id));
 
-		// empty dependency array means this effect will only run once (like componentDidMount in classes)
-	}, []);
+	// 	// empty dependency array means this effect will only run once (like componentDidMount in classes)
+	// }, []);
 	return (
 		<>
 			<div className="projects-overview">
