@@ -1,6 +1,6 @@
 ## Ray Atelier
 
-Site for spatial design agency Ray Atelier Stockholm.
+Site for spatial design agency Ray Atelier Stockholm. A minimalistic site with the images in focus.
 
 ### Tech
 
