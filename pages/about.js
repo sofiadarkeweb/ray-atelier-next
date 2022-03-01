@@ -32,7 +32,7 @@ const about = ({ othertexts }) => {
 			</div>
 			<div className="text-section">
 				<div>
-					<p className="clients">OUR CLIENTS</p>
+					<p className="clients">CLIENT LIST</p>
 					{othertexts[0].fields.clients.map((client) => (
 						<div key={client}>{client} &nbsp;</div>
 					))}
