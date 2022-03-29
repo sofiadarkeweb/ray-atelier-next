@@ -269,7 +269,7 @@ footer {
 
 .project-content {
 	padding-left: 5%;
-	padding-right: 5%;
+	padding-right: 30%;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
@@ -280,6 +280,12 @@ footer {
 }
 
 .project-title {
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+}
+
+.project-desc {
 	font-weight: 300;
 	text-transform: uppercase;
 	letter-spacing: 0.05rem;
@@ -404,6 +410,10 @@ footer {
 
 	.next-link {
 		/* padding-left: 2%; */
+	}
+
+	.project-content {
+		padding-right: 5%;
 	}
 }
 
