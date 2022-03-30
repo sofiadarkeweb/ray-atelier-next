@@ -269,7 +269,7 @@ footer {
 
 .project-content {
 	padding-left: 5%;
-	padding-right: 45%;
+	padding-right: 50%;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
@@ -429,14 +429,6 @@ footer {
 	.masonry-img {
 		padding-bottom: 4%;
 	}
-
-	/* .logo-front {
-	
-		width: 100%;
-		display: none;
-		justify-content: center;
-	
-	} */
 
 	.project-content {
 		padding-left: 7%;
