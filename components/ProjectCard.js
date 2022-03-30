@@ -12,6 +12,22 @@ const projectCard = ({ portfolioProject }) => {
 		Aos.init({ duration: 1000 });
 	}, []);
 
+	// const renderContent = (src) => {
+	// 	const fileType = getFileType(src);
+	// 	if (fileType == "image/jpg") {
+	// 		return <img src={src} />;
+	// 	} else if (fileType == "video") {
+	// 		return (
+	// 			<video>
+	// 				<source src={src}></source>
+	// 			</video>
+	// 		);
+	// 	}
+	// 	return null;
+	// };
+
+	// if ({thumbnail.fields.file.contentType} === "image/jpeg")
+
 	return (
 		<div className="card">
 			<Link href={"/projects/" + slug}>
@@ -22,7 +38,6 @@ const projectCard = ({ portfolioProject }) => {
 							width={thumbnail.fields.file.details.image.width}
 							height={thumbnail.fields.file.details.image.height}
 							objectFit="contain"
-							// className="thumbnail-image"
 						/>
 					</div>
 					<div className="info-text">{projectTitle}</div>
@@ -34,3 +49,49 @@ const projectCard = ({ portfolioProject }) => {
 };
 
 export default projectCard;
+
+{
+	/* <Link href={"/projects/" + slug}>
+	<a>
+		<div className="thumbnail" data-aos="fade-up">
+			<Image
+				src={"https:" + thumbnail.fields.file.url}
+				width={thumbnail.fields.file.details.image.width}
+				height={thumbnail.fields.file.details.image.height}
+				objectFit="contain"
+			/>
+		</div>
+		<div className="info-text">{projectTitle}</div>
+		<div className="info-text">{year}</div>
+	</a>
+</Link>; */
+}
+
+{
+	/* <Link href={"/projects/" + slug}>
+<a>
+	<div className="thumbnail" data-aos="fade-up">
+		{!isImage ? (
+			<video autoPlay muted loop>
+				<source
+					src={"https:" + thumbnail.fields.file.url}
+					width={thumbnail.fields.file.details.image.width}
+					height={thumbnail.fields.file.details.image.height}
+					objectFit="contain"
+					type={thumbnail.fields.file.contentType}
+				/>
+			</video>
+		) : (
+			<Image
+				src={"https:" + thumbnail.fields.file.url}
+				width={thumbnail.fields.file.details.image.width}
+				height={thumbnail.fields.file.details.image.height}
+				objectFit="contain"
+			/>
+		)}
+	</div>
+	<div className="info-text">{projectTitle}</div>
+	<div className="info-text">{year}</div>
+</a>
+</Link> */
+}

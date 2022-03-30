@@ -53,10 +53,6 @@ export default function ProjectDetails({
 		500: 1,
 	};
 
-	// const found = portfolioprojects.find(
-	// 	(element) => element == portfolioProject.indexOf()
-	// );
-
 	useEffect(() => {
 		Aos.init({ duration: 1000 });
 	}, []);
@@ -97,15 +93,28 @@ export default function ProjectDetails({
 				>
 					{projectImages &&
 						projectImages.map((img) => (
-							// const isPORTRAIT 0=img.width greate than img.height. use reduce, to rearrange the order. is this a portrai image, find next portrait
 							<div key={img.sys.id} className="masonry-img" data-aos="fade-up">
-								<Image
-									src={"https:" + img.fields.file.url}
-									width={img.fields.file.details.image.width}
-									height={img.fields.file.details.image.height}
+								{/* <Image
+										src={"https:" + img.fields.file.url}
+										width={img.fields.file.details.image.width}
+										height={img.fields.file.details.image.height}
 
-									// objectFit="contain"
-								/>
+										// objectFit="contain"
+									/> */}
+								{img.fields.file.contentType === "video/mp4" ? (
+									<video autoPlay muted loop className="project-video">
+										<source
+											src={"https:" + img.fields.file.url}
+											type={img.fields.file.contentType}
+										/>
+									</video>
+								) : (
+									<Image
+										src={"https:" + img.fields.file.url}
+										width={img.fields.file.details.image.width}
+										height={img.fields.file.details.image.height}
+									/>
+								)}
 								<span className="caption">{img.fields.description}</span>
 							</div>
 						))}

@@ -40,19 +40,6 @@ const projects = ({ portfolioprojects }) => {
 		Aos.init({ duration: 2000 });
 	}, []);
 
-	// useEffect(() => {
-	// 	// POST request using fetch inside useEffect React hook
-	// 	const requestOptions = {
-	// 		method: "POST",
-	// 		headers: { "Content-Type": "application/json" },
-	// 		body: JSON.stringify({ title: "React Hooks POST Request Example" }),
-	// 	};
-	// 	fetch("https://reqres.in/api/posts", requestOptions)
-	// 		.then((response) => response.json())
-	// 		.then((data) => setPostId(data.id));
-
-	// 	// empty dependency array means this effect will only run once (like componentDidMount in classes)
-	// }, []);
 	return (
 		<>
 			<div className="projects-overview">
@@ -61,6 +48,7 @@ const projects = ({ portfolioprojects }) => {
 					className="my-masonry-grid"
 					columnClassName="my-masonry-grid_column"
 				>
+					{/* {console.log(portfolioprojects)} */}
 					{portfolioprojects.map((project) => (
 						<ProjectCard key={project.sys.id} portfolioProject={project} />
 					))}
