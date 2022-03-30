@@ -12,20 +12,6 @@ const projectCard = ({ portfolioProject }) => {
 		Aos.init({ duration: 1000 });
 	}, []);
 
-	// const renderContent = (src) => {
-	// 	const fileType = getFileType(src);
-	// 	if (fileType == "image/jpg") {
-	// 		return <img src={src} />;
-	// 	} else if (fileType == "video") {
-	// 		return (
-	// 			<video>
-	// 				<source src={src}></source>
-	// 			</video>
-	// 		);
-	// 	}
-	// 	return null;
-	// };
-
 	// if ({thumbnail.fields.file.contentType} === "image/jpeg")
 
 	return (
@@ -33,12 +19,29 @@ const projectCard = ({ portfolioProject }) => {
 			<Link href={"/projects/" + slug}>
 				<a>
 					<div className="thumbnail" data-aos="fade-up">
-						<Image
+						{/* <Image
 							src={"https:" + thumbnail.fields.file.url}
 							width={thumbnail.fields.file.details.image.width}
 							height={thumbnail.fields.file.details.image.height}
 							objectFit="contain"
-						/>
+						/> */}
+						{console.log(thumbnail)}
+
+						{thumbnail.fields.file.contentType === "video/mp4" ? (
+							<video autoPlay muted loop className="project-video">
+								<source
+									src={"https:" + thumbnail.fields.file.url}
+									type={thumbnail.fields.file.contentType}
+								/>
+							</video>
+						) : (
+							<Image
+								src={"https:" + thumbnail.fields.file.url}
+								width={thumbnail.fields.file.details.image.width}
+								height={thumbnail.fields.file.details.image.height}
+								objectFit="contain"
+							/>
+						)}
 					</div>
 					<div className="info-text">{projectTitle}</div>
 					<div className="info-text">{year}</div>
