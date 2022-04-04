@@ -19,16 +19,17 @@ const projectCard = ({ portfolioProject }) => {
 			<Link href={"/projects/" + slug}>
 				<a>
 					<div className="thumbnail" data-aos="fade-up">
-						{/* <Image
-							src={"https:" + thumbnail.fields.file.url}
-							width={thumbnail.fields.file.details.image.width}
-							height={thumbnail.fields.file.details.image.height}
-							objectFit="contain"
-						/> */}
 						{console.log(thumbnail)}
 
 						{thumbnail.fields.file.contentType === "video/mp4" ? (
-							<video autoPlay muted loop className="project-video">
+							<video
+								autoPlay
+								muted
+								loop
+								webkit-playsinline
+								playsinline
+								className="project-video"
+							>
 								<source
 									src={"https:" + thumbnail.fields.file.url}
 									type={thumbnail.fields.file.contentType}
