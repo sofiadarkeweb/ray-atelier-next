@@ -102,7 +102,14 @@ export default function ProjectDetails({
 										// objectFit="contain"
 									/> */}
 								{img.fields.file.contentType === "video/mp4" ? (
-									<video autoPlay muted loop className="project-video">
+									<video
+										autoPlay
+										muted
+										loop
+										webkit-playsInline
+										playsInline
+										className="project-video"
+									>
 										<source
 											src={"https:" + img.fields.file.url}
 											type={img.fields.file.contentType}
