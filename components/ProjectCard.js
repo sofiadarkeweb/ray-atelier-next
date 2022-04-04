@@ -26,8 +26,8 @@ const projectCard = ({ portfolioProject }) => {
 								autoPlay
 								muted
 								loop
-								webkit-playsinline
-								playsinline
+								webkit-playsInline
+								playsInline
 								className="project-video"
 							>
 								<source
