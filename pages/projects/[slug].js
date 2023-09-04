@@ -66,8 +66,6 @@ export default function ProjectDetails({
 		similarProjects,
 	} = portfolioProject.fields;
 
-	// console.log({ portfolioProject });
-
 	return (
 		<div className="project-page">
 			<div className="feat-img">
@@ -106,7 +104,7 @@ export default function ProjectDetails({
 										autoPlay
 										muted
 										loop
-										webkit-playsInline
+										webkit-playsinline="true"
 										playsInline
 										className="project-video"
 									>

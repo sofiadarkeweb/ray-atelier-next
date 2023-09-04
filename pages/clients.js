@@ -31,10 +31,7 @@ const clients = ({ othertexts }) => {
 	return (
 		<>
 			<div className="text-section">
-				{/* {console.log({ clients })} */}
-				{/* <h1>clients</h1> */}
 				<div>
-					{/* {console.log(othertexts[0])} */}
 					{othertexts[0].fields.clients.map((client) => (
 						<p key={client}>{client}</p>
 					))}
@@ -43,7 +40,6 @@ const clients = ({ othertexts }) => {
 						))} */}
 					{/* {documentToReactComponents(othertexts[0].fields.clients, options)} */}
 				</div>
-				{/* key={othertexts[0].sys.id} */}
 			</div>
 		</>
 	);

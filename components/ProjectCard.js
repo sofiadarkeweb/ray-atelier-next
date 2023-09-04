@@ -7,27 +7,23 @@ import { useEffect } from "react";
 
 const projectCard = ({ portfolioProject }) => {
 	const { projectTitle, year, thumbnail, slug } = portfolioProject.fields;
-
+	const isVideo = thumbnail.fields.file.contentType === "video/mp4";
 	useEffect(() => {
 		Aos.init({ duration: 1000 });
 	}, []);
-
-	// if ({thumbnail.fields.file.contentType} === "image/jpeg")
 
 	return (
 		<div className="card">
 			<Link href={"/projects/" + slug}>
 				<a>
 					<div className="thumbnail" data-aos="fade-up">
-						{console.log(thumbnail)}
-
-						{thumbnail.fields.file.contentType === "video/mp4" ? (
+						{isVideo ? (
 							<video
 								autoPlay
 								muted
 								loop
-								webkit-playsInline
 								playsInline
+								webkit-playsinline="true"
 								className="project-video"
 							>
 								<source
