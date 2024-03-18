@@ -34,7 +34,14 @@ export default function Hero() {
               />
             </div>
 
-            <video autoPlay muted loop className="landing-video">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              webkit-playsinline="true"
+              className="landing-video"
+            >
               <source
                 src={isMobile ? "/RAY_Mobile_ny.mp4" : "/RAY_Desktop.mp4"}
                 type="video/mp4"
