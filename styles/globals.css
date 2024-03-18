@@ -9,34 +9,22 @@
 
 body {
 	background: white;
-	/* font-family: "Cormorant Garamond", serif; */
 	font-family: Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: 300;
 	line-height: 1rem;
 }
 
-html {
-	/* height: 100%; */
-}
 
 /* MAIN ELEMENTS*/
 
-header {
-	/* width: 100vw; */
-	/* height: 2rem; */
-	/* background-color: yellow; */
 
-	/* margin: 1em; */
-}
 
 /* LAYOUT AND NAV */
 
 .layout {
 	min-height: 100vh;
 	position: relative;
-	/* display: flex; */
-	/* flex-direction: column; */
 }
 
 main {
@@ -55,8 +43,8 @@ main {
 	opacity: 1;
 	background-color: white;
 	text-transform: uppercase;
-	font-size: 0.9em;
-	letter-spacing: 0.2em;
+	font-size: 1.1em;
+	letter-spacing: 0.1em;
 	animation: 1s ease-out 0s 1 slideInFromTop;
 }
 
@@ -75,7 +63,6 @@ main {
 }
 
 .nav-bar-items {
-	/* border: 1px red solid; */
 	margin: 0;
 }
 
@@ -166,14 +153,15 @@ footer {
 	padding-left: 8%;
 	padding-bottom: 5%;
 	animation: 1s ease-out 0s 1 fadeIn;
-	/* margin-right: 5%;
-	margin-left: 5%; */
+	position: relative;
 }
 
 .info-text {
 	color: rgb(58, 58, 58);
-	font-size: 0.8em;
-	line-height: 0.8rem;
+	line-height: 0.9rem;
+	font-size: 0.85em;
+	margin-top: -1px;
+	letter-spacing: 0.05em
 }
 
 /* NAVMENY PROJECTS*/
@@ -183,9 +171,6 @@ footer {
 	padding-left: 5%;
 	padding-right: 30%;
 	padding-bottom: 1rem;
-	/* margin-top: 3vh; */
-
-	/* padding-top: 4rem; */
 	flex-wrap: wrap;
 	z-index: 4000;
 	opacity: 1;
@@ -215,10 +200,6 @@ footer {
 	content: " ";
 }
 
-.project-list-items:last-child {
-	/* content: "";
-	color: red; */
-}
 
 .bar {
 	width: 80%;
@@ -227,10 +208,6 @@ footer {
 	/* margin */
 }
 
-.project-list-items:hover {
-	/* opacity: 1; */
-	/* visibility: visible; */
-}
 
 .clients {
 	text-transform: uppercase;
@@ -362,15 +339,33 @@ footer {
 	padding: 2.5%;
 }
 
-.img-grid :last-child {
-	/* border: 1px red solid; */
+.thumbnail {
+	aspect-ratio: 3/2;
+	object-fit: cover;
+	overflow: hidden;
+	cursor: pointer;
 }
+
+.info-text-container {
+	position: absolute;
+	padding-top: 0.4rem;
+	display: none;
+	text-transform: uppercase;
+	font-size: 0.85em;
+
+}
+
+
+
+
+.link-thumbnail:hover > .info-text-container {
+	display: block;
+
+  }
+
 
 .similar-heading {
 	margin-left: 2.5%;
-
-	/* margin-bottom: 3rem;
-	padding-top: 8rem; */
 }
 
 .mobile-nav {
@@ -448,25 +443,10 @@ footer {
 		margin-left: -10px;
 	}
 
-	.info-text {
-		margin-left: 0.5em;
-	}
-
 	.feat-img {
 		width: 100vw;
 		padding-right: 7%;
 		padding-left: 7%;
-		/* height: 45vh; */
-	}
-
-	.card {
-		/* margin-right: -10px;
-		margin-left: -10px; */
-	}
-
-	.info-text {
-		font-size: 0.9em;
-		margin-left: 0;
 	}
 
 	.line {
