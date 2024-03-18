@@ -95,8 +95,6 @@ footer {
 
 /*LANDING PAGE*/
 
-.landing-page {
-}
 
 .landing-video {
 	object-fit: cover;
@@ -224,14 +222,9 @@ footer {
 }
 
 .feat-img {
-	/* min-width: 100%; */
 	min-width: 100vw;
-
-	/* padding: 5%; */
 	width: 100%;
-	/* height: 95vh; */
 	display: flex;
-	/* background-position: center center; */
 	justify-content: center;
 	align-items: center;
 	object-fit: cover;
@@ -299,11 +292,9 @@ footer {
 .my-masonry-grid_column-more {
 	margin-left: 3%;
 	margin-right: 3%;
-	/* background-clip: padding-box; */
 }
 
 .masonry-img {
-	/* margin-bottom: -5px; */
 	margin: 0.5rem;
 	padding-bottom: 12%;
 }
@@ -322,7 +313,6 @@ footer {
 }
 
 .similar-object {
-	/* background-color: red; */
 	height: 13rem;
 }
 
@@ -352,7 +342,6 @@ footer {
 	display: none;
 	text-transform: uppercase;
 	font-size: 0.85em;
-
 }
 
 
@@ -360,7 +349,6 @@ footer {
 
 .link-thumbnail:hover > .info-text-container {
 	display: block;
-
   }
 
 
@@ -384,20 +372,21 @@ footer {
 		animation: 1s ease-out 0s 1 fadeIn;
 	}
 	.feat-img {
-		/* min-width: 100%; */
 		min-width: 100vw;
-		/* height: 55vh; */
 		display: block;
 	}
 
 	.similar-grid {
 		grid-template-columns: 1fr 1fr;
-		/* padding-left: 3%;
-		padding-right: 3%; */
 	}
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
+
+	.info-text-container {
+		display: block;
+	}
+
 	.thumbnail-similar {
 		height: 9rem;
 	}
@@ -405,10 +394,6 @@ footer {
 	.projects-overview {
 		padding-left: 0%;
 		padding-right: 0%;
-	}
-
-	.next-link {
-		/* padding-left: 2%; */
 	}
 
 	.project-content {
