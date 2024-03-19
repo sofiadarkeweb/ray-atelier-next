@@ -2,9 +2,8 @@ import React from "react";
 import ProjectCard from "../../components/ProjectCard";
 import { createClient } from "contentful";
 import Masonry from "react-masonry-css";
-import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import Footer from "../../components/Footer";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -44,6 +43,7 @@ const projects = ({ portfolioprojects }) => {
           ))}
         </Masonry>
       </div>
+      <Footer color="black" zIndex={100} />
     </>
   );
 };

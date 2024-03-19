@@ -1,5 +1,6 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Footer from "../components/Footer";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -38,10 +39,9 @@ const about = ({ othertexts }) => {
           ))}
         </div>
       </div>
+      <Footer color="black" zIndex={100} />
     </>
   );
 };
 
 export default about;
-
-// style={{ display: "inline" }}
