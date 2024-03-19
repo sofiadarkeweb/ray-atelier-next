@@ -1,16 +1,16 @@
 import React, { useMemo } from "react";
 
-// wrap in memo. use memo
+const Footer = (props) => {
+  const { color, zIndex } = props;
+  let thisYear = useMemo(() => new Date().getFullYear());
 
-const Footer = () => {
-	let thisYear = useMemo(() => new Date().getFullYear());
-
-	return (
-		<footer>
-			<p>Copyright Ray Atelier {thisYear}</p>
-			{/* <p>Code by Sofia Darke</p> */}
-		</footer>
-	);
+  return (
+    <footer>
+      <p style={{ color: color, zIndex: zIndex }}>
+        Copyright Ray Atelier {thisYear}
+      </p>
+    </footer>
+  );
 };
 
 export default Footer;
