@@ -33,7 +33,6 @@ const about = ({ othertexts }) => {
       <div className="text-section">
         <div>
           <p className="clients">CLIENT LIST</p>
-          <p>HEJ</p>
           {othertexts[0].fields.clients.map((client) => (
             <div key={client}>{client} &nbsp;</div>
           ))}

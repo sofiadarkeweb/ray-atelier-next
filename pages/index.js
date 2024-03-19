@@ -43,7 +43,7 @@ export default function Hero() {
               className="landing-video"
             >
               <source
-                src={isMobile ? "/RAY_Mobile_ny.mp4" : "/RAY_Desktop.mp4"}
+                src={isMobile ? "/Ray_mobile.mp4" : "/Ray_desktop_ny.mp4"}
                 type="video/mp4"
               />
             </video>

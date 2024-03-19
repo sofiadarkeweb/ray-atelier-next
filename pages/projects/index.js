@@ -31,10 +31,6 @@ const projects = ({ portfolioprojects }) => {
     500: 1,
   };
 
-  useEffect(() => {
-    Aos.init({ duration: 2000 });
-  }, []);
-
   return (
     <>
       <div className="projects-overview">

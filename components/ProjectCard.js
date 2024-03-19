@@ -13,10 +13,15 @@ const projectCard = ({ portfolioProject }) => {
   }, []);
 
   return (
-    <div className="card">
+    <div className="card" data-aos="fade-in">
       <Link href={"/projects/" + slug}>
-        <a className="link-thumbnail" data-aos="fade-up">
-          <div className="thumbnail" data-aos="fade-up">
+        <a className="link-thumbnail">
+          <div
+            className="thumbnail"
+            data-aos="fade-in"
+            easing="ease-in-quad"
+            data-aos-offset="80"
+          >
             {isVideo ? (
               <video
                 autoPlay
