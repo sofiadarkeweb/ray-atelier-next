@@ -1,11 +1,10 @@
 import { createClient } from "contentful";
 import Image from "next/image";
-import Link from "next/link";
 import Masonry from "react-masonry-css";
-// import NavProjectList from "../../components/NavProjectList";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Footer from "../../components/Footer";
 
 const client = createClient({
   space: process.env.CONTENFUL_SPACE_ID,
@@ -60,16 +59,10 @@ export default function ProjectDetails({
   const { projectTitle, description, year, featuredImage, projectImages } =
     portfolioProject.fields;
 
+  const showFeatureImage = false;
+
   return (
     <div className="project-page">
-      {/* <div className="feat-img">
-				<Image
-					src={"https:" + featuredImage.fields.file.url}
-					width={featuredImage.fields.file.details.image.width}
-					height={featuredImage.fields.file.details.image.height}
-					objectFit="contain"
-				/>
-			</div> */}
       <div className="project-content" data-aos="fade-up">
         <p className="project-title">{projectTitle}</p>
         <p>{year}</p>
@@ -110,7 +103,18 @@ export default function ProjectDetails({
               </div>
             ))}
         </Masonry>
+        {featuredImage && showFeatureImage && (
+          <div className="feat-img">
+            <Image
+              src={"https:" + featuredImage.fields.file.url}
+              width={featuredImage.fields.file.details.image.width}
+              height={featuredImage.fields.file.details.image.height}
+              objectFit="contain"
+            />
+          </div>
+        )}
       </div>
+      <Footer color="black" zIndex={100} />
     </div>
   );
 }
