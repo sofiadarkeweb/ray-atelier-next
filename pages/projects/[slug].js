@@ -56,10 +56,14 @@ export default function ProjectDetails({
     Aos.init({ duration: 1000 });
   }, []);
 
-  const { projectTitle, description, year, featuredImage, projectImages } =
-    portfolioProject.fields;
-
-  const showFeatureImage = false;
+  const {
+    projectTitle,
+    description,
+    year,
+    featuredImage,
+    projectImages,
+    fullWidthImage,
+  } = portfolioProject.fields;
 
   return (
     <div className="project-page">
@@ -103,13 +107,21 @@ export default function ProjectDetails({
               </div>
             ))}
         </Masonry>
-        {featuredImage && showFeatureImage && (
+        {featuredImage && (
           <div className="feat-img">
             <Image
               src={"https:" + featuredImage.fields.file.url}
               width={featuredImage.fields.file.details.image.width}
               height={featuredImage.fields.file.details.image.height}
-              objectFit="contain"
+            />
+          </div>
+        )}
+        {fullWidthImage && (
+          <div className="feat-img">
+            <Image
+              src={"https:" + fullWidthImage.fields.file.url}
+              width={fullWidthImage.fields.file.details.image.width}
+              height={fullWidthImage.fields.file.details.image.height}
             />
           </div>
         )}
