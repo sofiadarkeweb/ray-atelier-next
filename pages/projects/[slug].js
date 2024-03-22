@@ -107,22 +107,52 @@ export default function ProjectDetails({
               </div>
             ))}
         </Masonry>
-        {featuredImage && (
+        {featuredImage ? (
           <div className="feat-img">
-            <Image
-              src={"https:" + featuredImage.fields.file.url}
-              width={featuredImage.fields.file.details.image.width}
-              height={featuredImage.fields.file.details.image.height}
-            />
+            {featuredImage.fields.file.contentType === "video/mp4" ? (
+              <video
+                autoPlay
+                muted
+                webkit-playsinline="true"
+                playsInline
+                className="project-video"
+              >
+                <source
+                  src={"https:" + featuredImage.fields.file.url}
+                  type={featuredImage.fields.file.contentType}
+                />
+              </video>
+            ) : (
+              <Image
+                src={"https:" + featuredImage.fields.file.url}
+                width={featuredImage.fields.file.details.image.width}
+                height={featuredImage.fields.file.details.image.height}
+              />
+            )}
           </div>
-        )}
+        ) : null}
         {fullWidthImage && (
           <div className="feat-img">
-            <Image
-              src={"https:" + fullWidthImage.fields.file.url}
-              width={fullWidthImage.fields.file.details.image.width}
-              height={fullWidthImage.fields.file.details.image.height}
-            />
+            {fullWidthImage.fields.file.contentType === "video/mp4" ? (
+              <video
+                autoPlay
+                muted
+                webkit-playsinline="true"
+                playsInline
+                className="project-video"
+              >
+                <source
+                  src={"https:" + fullWidthImage.fields.file.url}
+                  type={fullWidthImage.fields.file.contentType}
+                />
+              </video>
+            ) : (
+              <Image
+                src={"https:" + fullWidthImage.fields.file.url}
+                width={fullWidthImage.fields.file.details.image.width}
+                height={fullWidthImage.fields.file.details.image.height}
+              />
+            )}
           </div>
         )}
       </div>
