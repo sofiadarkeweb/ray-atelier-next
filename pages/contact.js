@@ -22,6 +22,15 @@ const contact = ({ othertexts }) => {
   const options = {
     renderText: (text) => {
       return text.split("\n").reduce((children, textSegment, index) => {
+        if (textSegment.includes("@")) {
+          return [
+            ...children,
+            index > 0 && <br key={`${index}-br`} />,
+            <a key={`${index}-a`} href={`mailto:${textSegment}`}>
+              {textSegment}
+            </a>,
+          ];
+        }
         return [...children, index > 0 && <br key={index} />, textSegment];
       }, []);
     },
