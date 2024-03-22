@@ -287,7 +287,6 @@ footer > p {
 	display: -ms-flexbox; /* Not needed if autoprefixing */
 	display: flex;
 	width: auto;
-	/* padding-bottom: 1rem; */
 }
 
 .my-masonry-grid_column-more {
