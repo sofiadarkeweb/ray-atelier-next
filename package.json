@@ -1,29 +1,25 @@
 {
 	"name": "ray-atelier",
-	"homepage": "http://sofiadarkeweb.github.io/ray-atelier-next",
 	"version": "0.1.0",
 	"private": true,
+	"engines": {
+		"node": ">=20"
+	},
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"start": "next start",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build"
+		"start": "next start"
 	},
 	"dependencies": {
 		"@contentful/rich-text-html-renderer": "^15.3.4",
 		"@contentful/rich-text-react-renderer": "^15.3.3",
 		"aos": "^3.0.0-beta.6",
 		"contentful": "^8.5.0",
-		"next": "^11.1.4",
-		"next-videos": "^1.4.0",
+		"next": "^14.2.23",
 		"postcss": "^8.4.29",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
 		"react-headroom": "^3.1.1",
 		"react-masonry-css": "^1.0.16"
-	},
-	"devDependencies": {
-		"gh-pages": "^3.2.3"
 	}
 }

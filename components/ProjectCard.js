@@ -14,41 +14,41 @@ const projectCard = ({ portfolioProject }) => {
 
   return (
     <div className="card" data-aos="fade-in">
-      <Link href={"/projects/" + slug}>
-        <a className="link-thumbnail">
-          <div
-            className="thumbnail"
-            data-aos="fade-in"
-            easing="ease-in-quad"
-            data-aos-offset="80"
-          >
-            {isVideo ? (
-              <video
-                autoPlay
-                muted
-                playsInline
-                webkit-playsinline="true"
-                className="project-video"
-              >
-                <source
-                  src={"https:" + thumbnail.fields.file.url}
-                  type={thumbnail.fields.file.contentType}
-                />
-              </video>
-            ) : (
-              <Image
+      <Link href={`/projects/${slug}`} className="link-thumbnail">
+        <div
+          className="thumbnail"
+          data-aos="fade-in"
+          easing="ease-in-quad"
+          data-aos-offset="80"
+        >
+          {isVideo ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="project-video"
+            >
+              <source
                 src={"https:" + thumbnail.fields.file.url}
-                width={thumbnail.fields.file.details.image.width}
-                height={thumbnail.fields.file.details.image.height}
-                objectFit="contain"
+                type={thumbnail.fields.file.contentType}
               />
-            )}
-          </div>
-          <div className="info-text-container">
-            <div className="info-text">{projectTitle}</div>
-            <div className="info-text">{year}</div>
-          </div>
-        </a>
+            </video>
+          ) : (
+            <Image
+              src={"https:" + thumbnail.fields.file.url}
+              alt={projectTitle || ""}
+              fill
+              sizes="(max-width: 500px) 100vw, (max-width: 700px) 33vw, 25vw"
+              style={{ objectFit: "cover" }}
+            />
+          )}
+        </div>
+        <div className="info-text-container">
+          <div className="info-text">{projectTitle}</div>
+          <div className="info-text">{year}</div>
+        </div>
       </Link>
     </div>
   );

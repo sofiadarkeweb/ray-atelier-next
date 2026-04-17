@@ -23,32 +23,31 @@ export default function Hero() {
         <title>Ray Atelier | Home </title>
       </Head>
       <Link href="/projects">
-        <a>
-          <div className="landing-page">
-            <div className="logo-front" data-aos="fade-up">
-              <Image
-                src="/RAY_LOGGA_VIT.svg"
-                alt="Ray logo landing page"
-                width={700}
-                height={700}
-              />
-            </div>
-
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              webkit-playsinline="true"
-              className="landing-video"
-            >
-              <source
-                src={isMobile ? "/Ray_mobile.mp4" : "/Ray_desktop_ny.mp4"}
-                type="video/mp4"
-              />
-            </video>
+        <div className="landing-page">
+          <div className="logo-front" data-aos="fade-up">
+            <Image
+              src="/RAY_LOGGA_VIT.svg"
+              alt="Ray logo landing page"
+              width={700}
+              height={700}
+              priority
+            />
           </div>
-        </a>
+
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="landing-video"
+            style={{ WebkitPlaysinline: "true" }}
+          >
+            <source
+              src={isMobile ? "/Ray_mobile.mp4" : "/Ray_desktop_ny.mp4"}
+              type="video/mp4"
+            />
+          </video>
+        </div>
       </Link>
     </>
   );

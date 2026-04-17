@@ -1,17 +1,18 @@
-const debug = process.env.NODE_ENV !== "production";
-
+/** @type {import('next').NextConfig} */
 module.exports = {
 	images: {
-		domains: ["picsum.photos", "images.ctfassets.net"],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'picsum.photos',
+				pathname: '/**',
+			},
+			{
+				protocol: 'https',
+				hostname: 'images.ctfassets.net',
+				pathname: '/**',
+			},
+		],
 	},
 	reactStrictMode: true,
-	// assetPrefix: !debug ? "ray-atelier" : "",
 };
-
-// const withVideos = require("next-videos");
-
-// module.exports = withVideos();
-
-// This file is not going through babel transformation.
-// So, we write it in vanilla JS
-// (But you could use ES2015 features supported by your Node.js version)

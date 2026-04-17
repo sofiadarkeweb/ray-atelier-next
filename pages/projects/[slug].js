@@ -87,8 +87,9 @@ export default function ProjectDetails({
                   <video
                     autoPlay
                     muted
-                    webkit-playsinline="true"
+                    loop
                     playsInline
+                    preload="auto"
                     className="project-video"
                   >
                     <source
@@ -99,8 +100,11 @@ export default function ProjectDetails({
                 ) : (
                   <Image
                     src={"https:" + img.fields.file.url}
+                    alt={img.fields.description || projectTitle || ""}
                     width={img.fields.file.details.image.width}
                     height={img.fields.file.details.image.height}
+                    sizes="(max-width: 500px) 100vw, 50vw"
+                    style={{ width: "100%", height: "auto" }}
                   />
                 )}
                 <span className="caption">{img.fields.description}</span>
@@ -113,8 +117,9 @@ export default function ProjectDetails({
               <video
                 autoPlay
                 muted
-                webkit-playsinline="true"
+                loop
                 playsInline
+                preload="auto"
                 className="project-video"
               >
                 <source
@@ -125,8 +130,11 @@ export default function ProjectDetails({
             ) : (
               <Image
                 src={"https:" + featuredImage.fields.file.url}
+                alt={projectTitle || ""}
                 width={featuredImage.fields.file.details.image.width}
                 height={featuredImage.fields.file.details.image.height}
+                sizes="(max-width: 500px) 100vw, 93vw"
+                style={{ width: "100%", height: "auto" }}
               />
             )}
           </div>
@@ -137,8 +145,9 @@ export default function ProjectDetails({
               <video
                 autoPlay
                 muted
-                webkit-playsinline="true"
+                loop
                 playsInline
+                preload="auto"
                 className="project-video"
               >
                 <source
@@ -149,8 +158,11 @@ export default function ProjectDetails({
             ) : (
               <Image
                 src={"https:" + fullWidthImage.fields.file.url}
+                alt={projectTitle || ""}
                 width={fullWidthImage.fields.file.details.image.width}
                 height={fullWidthImage.fields.file.details.image.height}
+                sizes="(max-width: 500px) 100vw, 93vw"
+                style={{ width: "100%", height: "auto" }}
               />
             )}
           </div>

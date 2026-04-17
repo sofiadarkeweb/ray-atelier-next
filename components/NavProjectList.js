@@ -5,9 +5,7 @@ import Headroom from "react-headroom";
 const NavProjectList = ({ title, slug }) => {
 	return (
 		<div className="project-list-items">
-			<Link href={"/projects/" + slug}>
-				<a>{title}</a>
-			</Link>
+			<Link href={`/projects/${slug}`}>{title}</Link>
 		</div>
 	);
 };
