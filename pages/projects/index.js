@@ -38,8 +38,12 @@ const projects = ({ portfolioprojects }) => {
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {portfolioprojects.map((project) => (
-            <ProjectCard key={project.sys.id} portfolioProject={project} />
+          {portfolioprojects.map((project, index) => (
+            <ProjectCard
+              key={project.sys.id}
+              portfolioProject={project}
+              index={index}
+            />
           ))}
         </Masonry>
       </div>

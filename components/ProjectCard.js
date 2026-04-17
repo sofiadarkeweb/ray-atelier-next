@@ -5,7 +5,10 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-const projectCard = ({ portfolioProject }) => {
+/** First grid tiles are above the fold — eager image loading helps LCP. */
+const aboveFoldImageCount = 8;
+
+const projectCard = ({ portfolioProject, index = 0 }) => {
   const { projectTitle, year, thumbnail, slug } = portfolioProject.fields;
   const isVideo = thumbnail.fields.file.contentType === "video/mp4";
   useEffect(() => {
@@ -42,6 +45,7 @@ const projectCard = ({ portfolioProject }) => {
               fill
               sizes="(max-width: 500px) 100vw, (max-width: 700px) 33vw, 25vw"
               style={{ objectFit: "cover" }}
+              priority={index < aboveFoldImageCount}
             />
           )}
         </div>
