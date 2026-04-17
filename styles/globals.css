@@ -141,6 +141,25 @@ footer > p {
 	align-items: center;
 }
 
+/* next/image uses a wrapper span; without this, fixed 700×700 stays visually huge on mobile */
+.logo-front > span {
+	display: block !important;
+	width: auto !important;
+	max-width: min(92vw, 700px);
+	margin: 0 auto;
+}
+
+.logo-front img {
+	width: 100% !important;
+	height: auto !important;
+}
+
+@media screen and (max-width: 768px) {
+	.logo-front > span {
+		max-width: min(78vw, 280px);
+	}
+}
+
 .logo-front > p {
 	animation: 1s ease-out 0s 1 fadeIn;
 	color: white;
