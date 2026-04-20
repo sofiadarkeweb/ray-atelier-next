@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
     <>
       <nav className="nav-bar" id="foo">
@@ -24,5 +24,3 @@ const NavBar = () => {
     </>
   );
 };
-
-export default NavBar;

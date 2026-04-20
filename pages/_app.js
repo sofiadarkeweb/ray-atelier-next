@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "../styles/globals.css";
-import Layout from "../components/Layout";
+import { Layout } from "../components/layout";
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();

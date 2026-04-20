@@ -1,9 +1,9 @@
-import NavBar from "./NavBar";
-import Footer from "./Footer";
 import Headroom from "react-headroom";
 import { useRouter } from "next/router";
+import { Footer } from "./footer";
+import { NavBar } from "./nav-bar";
 
-export default function Layout({ children }) {
+export const Layout = ({ children }) => {
   const router = useRouter();
 
   const { pathname } = router;
@@ -24,4 +24,4 @@ export default function Layout({ children }) {
       <Footer color={isHome ? "white" : "black"} zIndex={isHome ? undefined : 100} />
     </div>
   );
-}
+};

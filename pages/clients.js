@@ -1,13 +1,10 @@
 import React from "react";
-import { createClient } from "contentful";
+import { createContentfulClient } from "../lib/contentful-client";
+import { contentType } from "../lib/contentful-queries";
 
 export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENFUL_SPACE_ID,
-    accessToken: process.env.CONTENFUL_ACCESS_KEY,
-  });
-
-  const res = await client.getEntries({ content_type: "otherTexts" });
+  const client = createContentfulClient();
+  const res = await client.getEntries({ content_type: contentType.otherTexts });
 
   return {
     props: {

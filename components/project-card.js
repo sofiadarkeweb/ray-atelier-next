@@ -9,7 +9,7 @@ const aboveFoldImageCount = 8;
 /** Same window for video: defer off-screen clips so they do not starve thumbnail images. */
 const aboveFoldVideoCount = 8;
 
-const projectCard = ({ portfolioProject, index = 0 }) => {
+export const ProjectCard = ({ portfolioProject, index = 0 }) => {
   const { projectTitle, year, thumbnail, slug } = portfolioProject.fields;
   const isVideo = thumbnail.fields.file.contentType === "video/mp4";
   const deferVideo = isVideo && index >= aboveFoldVideoCount;
@@ -86,5 +86,3 @@ const projectCard = ({ portfolioProject, index = 0 }) => {
     </div>
   );
 };
-
-export default projectCard;

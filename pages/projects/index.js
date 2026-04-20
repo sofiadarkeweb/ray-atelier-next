@@ -1,25 +1,15 @@
 import React from "react";
-import ProjectCard from "../../components/ProjectCard";
-import { createClient } from "contentful";
 import Masonry from "react-masonry-css";
+import { ProjectCard } from "../../components/project-card";
+import { createContentfulClient } from "../../lib/contentful-client";
+import { contentType, projectGridSelect } from "../../lib/contentful-queries";
 
 export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENFUL_SPACE_ID,
-    accessToken: process.env.CONTENFUL_ACCESS_KEY,
-  });
-
-  /** Only fields needed for the grid — smaller HTML/JSON and faster TTFB. */
+  const client = createContentfulClient();
   const res = await client.getEntries({
-    content_type: "portfolioProject",
+    content_type: contentType.portfolioProject,
     order: "-sys.createdAt",
-    select: [
-      "sys",
-      "fields.slug",
-      "fields.projectTitle",
-      "fields.year",
-      "fields.thumbnail",
-    ].join(","),
+    select: projectGridSelect,
     include: 2,
   });
 

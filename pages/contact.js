@@ -1,14 +1,12 @@
 import React from "react";
-import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { createContentfulClient } from "../lib/contentful-client";
+import { contentType } from "../lib/contentful-queries";
+import { mailtoLineBreakRichTextOptions } from "../lib/rich-text-options";
 
 export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENFUL_SPACE_ID,
-    accessToken: process.env.CONTENFUL_ACCESS_KEY,
-  });
-
-  const res = await client.getEntries({ content_type: "otherTexts" });
+  const client = createContentfulClient();
+  const res = await client.getEntries({ content_type: contentType.otherTexts });
 
   return {
     props: {
@@ -18,27 +16,13 @@ export async function getStaticProps() {
 }
 
 const contact = ({ othertexts }) => {
-  const options = {
-    renderText: (text) => {
-      return text.split("\n").reduce((children, textSegment, index) => {
-        if (textSegment.includes("@")) {
-          return [
-            ...children,
-            index > 0 && <br key={`${index}-br`} />,
-            <a key={`${index}-a`} href={`mailto:${textSegment}`}>
-              {textSegment}
-            </a>,
-          ];
-        }
-        return [...children, index > 0 && <br key={index} />, textSegment];
-      }, []);
-    },
-  };
-
   return (
     <>
       <div className="text-section">
-        {documentToReactComponents(othertexts[0].fields.contact, options)}
+        {documentToReactComponents(
+          othertexts[0].fields.contact,
+          mailtoLineBreakRichTextOptions
+        )}
       </div>
     </>
   );

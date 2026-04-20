@@ -1,16 +1,13 @@
 import React, { useMemo } from "react";
 
-const Footer = (props) => {
-  const { color, zIndex } = props;
-  let thisYear = useMemo(() => new Date().getFullYear());
+export const Footer = ({ color, zIndex }) => {
+  const year = useMemo(() => new Date().getFullYear(), []);
 
   return (
     <footer>
-      <p style={{ color: color, zIndex: zIndex }}>
-        Copyright Ray Atelier {thisYear}
+      <p style={{ color, zIndex }}>
+        Copyright Ray Atelier {year}
       </p>
     </footer>
   );
 };
-
-export default Footer;

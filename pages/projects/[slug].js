@@ -1,29 +1,16 @@
-import { createClient } from "contentful";
 import Image from "next/image";
 import Masonry from "react-masonry-css";
+import { createContentfulClient } from "../../lib/contentful-client";
+import { contentType, projectDetailSelect } from "../../lib/contentful-queries";
 import { imagePlaceholderBg } from "../../lib/image-placeholder";
 
-const client = createClient({
-  space: process.env.CONTENFUL_SPACE_ID,
-  accessToken: process.env.CONTENFUL_ACCESS_KEY,
-});
-
-/** Only fields used on the project page — keeps serialized page props small. */
-const projectDetailSelect = [
-  "sys",
-  "fields.projectTitle",
-  "fields.description",
-  "fields.year",
-  "fields.projectImages",
-  "fields.featuredImage",
-  "fields.fullWidthImage",
-].join(",");
+const client = createContentfulClient();
 
 const detailImageQuality = 75;
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
-    content_type: "portfolioProject",
+    content_type: contentType.portfolioProject,
     select: "fields.slug",
   });
   const paths = res.items.map((item) => ({
@@ -38,7 +25,7 @@ export const getStaticPaths = async () => {
 
 export async function getStaticProps({ params }) {
   const { items } = await client.getEntries({
-    content_type: "portfolioProject",
+    content_type: contentType.portfolioProject,
     "fields.slug": params.slug,
     select: projectDetailSelect,
     include: 2,
