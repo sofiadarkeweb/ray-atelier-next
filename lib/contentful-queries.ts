@@ -2,7 +2,7 @@
 export const contentType = {
   portfolioProject: "portfolioProject",
   otherTexts: "otherTexts",
-};
+} as const;
 
 /** Projects grid — only fields needed for `project-card`. */
 export const projectGridSelect = [
@@ -13,7 +13,7 @@ export const projectGridSelect = [
   "fields.thumbnail",
 ].join(",");
 
-/** Project detail page — fields used by `pages/projects/[slug].js`. */
+/** Project detail page — fields used by `pages/projects/[slug].tsx`. */
 export const projectDetailSelect = [
   "sys",
   "fields.projectTitle",

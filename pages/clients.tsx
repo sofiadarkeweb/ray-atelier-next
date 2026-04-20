@@ -1,6 +1,6 @@
-import React from "react";
 import { createContentfulClient } from "../lib/contentful-client";
 import { contentType } from "../lib/contentful-queries";
+import type { OtherTextsEntry } from "../types/contentful";
 
 export async function getStaticProps() {
   const client = createContentfulClient();
@@ -8,12 +8,16 @@ export async function getStaticProps() {
 
   return {
     props: {
-      othertexts: res.items,
+      othertexts: res.items as OtherTextsEntry[],
     },
   };
 }
 
-const clients = ({ othertexts }) => {
+type ClientsProps = {
+  othertexts: OtherTextsEntry[];
+};
+
+const Clients = ({ othertexts }: ClientsProps) => {
   return (
     <>
       <div className="text-section">
@@ -27,4 +31,4 @@ const clients = ({ othertexts }) => {
   );
 };
 
-export default clients;
+export default Clients;

@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import type { PortfolioGridEntry } from "../types/contentful";
+import { contentfulImageLoader } from "../lib/contentful-image-loader";
 import { imagePlaceholderBg } from "../lib/image-placeholder";
 
 /** First grid tiles — eager loading so LCP and above-the-fold media win the network. */
@@ -9,12 +11,17 @@ const aboveFoldImageCount = 8;
 /** Same window for video: defer off-screen clips so they do not starve thumbnail images. */
 const aboveFoldVideoCount = 8;
 
-export const ProjectCard = ({ portfolioProject, index = 0 }) => {
+type ProjectCardProps = {
+  portfolioProject: PortfolioGridEntry;
+  index?: number;
+};
+
+export const ProjectCard = ({ portfolioProject, index = 0 }: ProjectCardProps) => {
   const { projectTitle, year, thumbnail, slug } = portfolioProject.fields;
   const isVideo = thumbnail.fields.file.contentType === "video/mp4";
   const deferVideo = isVideo && index >= aboveFoldVideoCount;
   const [videoMounted, setVideoMounted] = useState(!deferVideo);
-  const thumbRef = useRef(null);
+  const thumbRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!deferVideo || !thumbRef.current) {
@@ -41,7 +48,7 @@ export const ProjectCard = ({ portfolioProject, index = 0 }) => {
           ref={thumbRef}
           className="thumbnail"
           data-aos="fade-in"
-          easing="ease-in-quad"
+          data-aos-easing="ease-in-quad"
           data-aos-offset="80"
         >
           {isVideo ? (
@@ -55,7 +62,7 @@ export const ProjectCard = ({ portfolioProject, index = 0 }) => {
                 className="project-video"
               >
                 <source
-                  src={"https:" + thumbnail.fields.file.url}
+                  src={`https:${thumbnail.fields.file.url}`}
                   type={thumbnail.fields.file.contentType}
                 />
               </video>
@@ -64,7 +71,8 @@ export const ProjectCard = ({ portfolioProject, index = 0 }) => {
             )
           ) : (
             <Image
-              src={"https:" + thumbnail.fields.file.url}
+              loader={contentfulImageLoader}
+              src={`https:${thumbnail.fields.file.url}`}
               alt={projectTitle || ""}
               fill
               sizes="(max-width: 500px) 100vw, (max-width: 700px) 33vw, 25vw"

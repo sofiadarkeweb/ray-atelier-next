@@ -2,6 +2,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { createContentfulClient } from "../lib/contentful-client";
 import { contentType } from "../lib/contentful-queries";
 import { lineBreakRichTextOptions } from "../lib/rich-text-options";
+import type { OtherTextsEntry } from "../types/contentful";
 
 export async function getStaticProps() {
   const client = createContentfulClient();
@@ -9,12 +10,16 @@ export async function getStaticProps() {
 
   return {
     props: {
-      othertexts: res.items,
+      othertexts: res.items as OtherTextsEntry[],
     },
   };
 }
 
-const about = ({ othertexts }) => {
+type AboutProps = {
+  othertexts: OtherTextsEntry[];
+};
+
+const About = ({ othertexts }: AboutProps) => {
   return (
     <>
       <div className="text-section">
@@ -35,4 +40,4 @@ const about = ({ othertexts }) => {
   );
 };
 
-export default about;
+export default About;

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,7 +27,7 @@ export default function Hero() {
             loop
             playsInline
             className="landing-video"
-            style={{ WebkitPlaysinline: "true" }}
+            style={{ WebkitPlaysinline: "true" } as CSSProperties}
           >
             <source src="/RAY_Video_3x2_small.mp4" type="video/mp4" />
           </video>

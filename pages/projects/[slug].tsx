@@ -1,21 +1,30 @@
+import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import Image from "next/image";
 import Masonry from "react-masonry-css";
 import { createContentfulClient } from "../../lib/contentful-client";
 import { contentType, projectDetailSelect } from "../../lib/contentful-queries";
+import { contentfulImageLoader } from "../../lib/contentful-image-loader";
 import { imagePlaceholderBg } from "../../lib/image-placeholder";
+import type { ContentfulMediaAsset, PortfolioProjectEntry } from "../../types/contentful";
 
 const client = createContentfulClient();
 
 const detailImageQuality = 75;
 
-export const getStaticPaths = async () => {
+const mediaUrl = (path: string) =>
+  path.startsWith("http") ? path : `https:${path}`;
+
+export const getStaticPaths: GetStaticPaths = async () => {
   const res = await client.getEntries({
     content_type: contentType.portfolioProject,
     select: "fields.slug",
   });
-  const paths = res.items.map((item) => ({
-    params: { slug: item.fields.slug },
-  }));
+  const paths = res.items.map((item) => {
+    const fields = item.fields as { slug: string };
+    return {
+      params: { slug: fields.slug },
+    };
+  });
 
   return {
     paths,
@@ -23,10 +32,26 @@ export const getStaticPaths = async () => {
   };
 };
 
-export async function getStaticProps({ params }) {
+type ProjectPageParams = {
+  slug: string;
+};
+
+type ProjectPageProps = {
+  portfolioProject: PortfolioProjectEntry;
+};
+
+export const getStaticProps: GetStaticProps<
+  ProjectPageProps,
+  ProjectPageParams
+> = async (context: GetStaticPropsContext<ProjectPageParams>) => {
+  const slug = context.params?.slug;
+  if (!slug) {
+    return { notFound: true };
+  }
+
   const { items } = await client.getEntries({
     content_type: contentType.portfolioProject,
-    "fields.slug": params.slug,
+    "fields.slug": slug,
     select: projectDetailSelect,
     include: 2,
   });
@@ -36,11 +61,13 @@ export async function getStaticProps({ params }) {
   }
 
   return {
-    props: { portfolioProject: items[0] },
+    props: {
+      portfolioProject: items[0] as PortfolioProjectEntry,
+    },
   };
-}
+};
 
-export default function ProjectDetails({ portfolioProject }) {
+export default function ProjectDetails({ portfolioProject }: ProjectPageProps) {
   const breakpointColumnsObj = {
     default: 2,
     500: 1,
@@ -60,6 +87,42 @@ export default function ProjectDetails({ portfolioProject }) {
         (img) => img.fields.file.contentType !== "video/mp4"
       )
     : -1;
+
+  const renderMedia = (asset: ContentfulMediaAsset, imageSizes: string) => {
+    const { file } = asset.fields;
+    if (file.contentType === "video/mp4") {
+      return (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="project-video"
+        >
+          <source src={mediaUrl(file.url)} type={file.contentType} />
+        </video>
+      );
+    }
+    const { width, height } = file.details.image;
+    return (
+      <Image
+        loader={contentfulImageLoader}
+        src={mediaUrl(file.url)}
+        alt={projectTitle || ""}
+        width={width}
+        height={height}
+        sizes={imageSizes}
+        style={{
+          width: "100%",
+          height: "auto",
+          backgroundColor: imagePlaceholderBg,
+        }}
+        quality={detailImageQuality}
+        placeholder="empty"
+      />
+    );
+  };
 
   return (
     <div className="project-page">
@@ -89,14 +152,15 @@ export default function ProjectDetails({ portfolioProject }) {
                     className="project-video"
                   >
                     <source
-                      src={"https:" + img.fields.file.url}
+                      src={mediaUrl(img.fields.file.url)}
                       type={img.fields.file.contentType}
                     />
                   </video>
                 ) : (
                   <Image
-                    src={"https:" + img.fields.file.url}
-                    alt={img.fields.description || projectTitle || ""}
+                    loader={contentfulImageLoader}
+                    src={mediaUrl(img.fields.file.url)}
+                    alt={img.fields.description ?? projectTitle ?? ""}
                     width={img.fields.file.details.image.width}
                     height={img.fields.file.details.image.height}
                     sizes="(max-width: 500px) 100vw, 50vw"
@@ -116,70 +180,12 @@ export default function ProjectDetails({ portfolioProject }) {
         </Masonry>
         {featuredImage ? (
           <div className="feat-img">
-            {featuredImage.fields.file.contentType === "video/mp4" ? (
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="project-video"
-              >
-                <source
-                  src={"https:" + featuredImage.fields.file.url}
-                  type={featuredImage.fields.file.contentType}
-                />
-              </video>
-            ) : (
-              <Image
-                src={"https:" + featuredImage.fields.file.url}
-                alt={projectTitle || ""}
-                width={featuredImage.fields.file.details.image.width}
-                height={featuredImage.fields.file.details.image.height}
-                sizes="(max-width: 500px) 100vw, 93vw"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  backgroundColor: imagePlaceholderBg,
-                }}
-                quality={detailImageQuality}
-                placeholder="empty"
-              />
-            )}
+            {renderMedia(featuredImage, "(max-width: 500px) 100vw, 93vw")}
           </div>
         ) : null}
         {fullWidthImage && (
           <div className="feat-img">
-            {fullWidthImage.fields.file.contentType === "video/mp4" ? (
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="project-video"
-              >
-                <source
-                  src={"https:" + fullWidthImage.fields.file.url}
-                  type={fullWidthImage.fields.file.contentType}
-                />
-              </video>
-            ) : (
-              <Image
-                src={"https:" + fullWidthImage.fields.file.url}
-                alt={projectTitle || ""}
-                width={fullWidthImage.fields.file.details.image.width}
-                height={fullWidthImage.fields.file.details.image.height}
-                sizes="(max-width: 500px) 100vw, 93vw"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  backgroundColor: imagePlaceholderBg,
-                }}
-                quality={detailImageQuality}
-                placeholder="empty"
-              />
-            )}
+            {renderMedia(fullWidthImage, "(max-width: 500px) 100vw, 93vw")}
           </div>
         )}
       </div>

@@ -1,9 +1,14 @@
+import type { ReactNode } from "react";
 import Headroom from "react-headroom";
 import { useRouter } from "next/router";
 import { Footer } from "./footer";
 import { NavBar } from "./nav-bar";
 
-export const Layout = ({ children }) => {
+type LayoutProps = {
+  children: ReactNode;
+};
+
+export const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
 
   const { pathname } = router;

@@ -1,6 +1,11 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
-export const Footer = ({ color, zIndex }) => {
+type FooterProps = {
+  color: string;
+  zIndex?: number;
+};
+
+export const Footer = ({ color, zIndex }: FooterProps) => {
   const year = useMemo(() => new Date().getFullYear(), []);
 
   return (
