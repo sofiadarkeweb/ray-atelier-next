@@ -138,22 +138,19 @@ footer > p {
 	align-items: center;
 }
 
-/* next/image uses a wrapper span; without this, fixed 700×700 stays visually huge on mobile */
-.logo-front > span {
-	display: block !important;
-	width: auto !important;
-	max-width: min(92vw, 700px);
-	margin: 0 auto;
-}
-
-.logo-front img {
-	width: 100% !important;
-	height: auto !important;
-}
-
+/* Hero logo: only constrain on small screens. Global rules made desktop logos fill up to 700px. */
 @media screen and (max-width: 768px) {
+	/* next/image uses a wrapper span; without this, fixed 700×700 stays visually huge on mobile */
 	.logo-front > span {
+		display: block !important;
+		width: auto !important;
 		max-width: min(78vw, 280px);
+		margin: 0 auto;
+	}
+
+	.logo-front img {
+		width: 100% !important;
+		height: auto !important;
 	}
 }
 
