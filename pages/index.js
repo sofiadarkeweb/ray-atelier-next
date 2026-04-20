@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Aos from "aos";
@@ -9,12 +8,6 @@ import Link from "next/link";
 export default function Hero() {
   useEffect(() => {
     Aos.init({ duration: 1000 });
-  }, []);
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
   }, []);
 
   return (
@@ -42,10 +35,7 @@ export default function Hero() {
             className="landing-video"
             style={{ WebkitPlaysinline: "true" }}
           >
-            <source
-              src={isMobile ? "/Ray_mobile.mp4" : "/Ray_desktop_ny.mp4"}
-              type="video/mp4"
-            />
+            <source src="/RAY_Video_3x2_small.mp4" type="video/mp4" />
           </video>
         </div>
       </Link>
