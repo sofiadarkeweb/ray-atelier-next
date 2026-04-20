@@ -2,8 +2,6 @@ import React from "react";
 import ProjectCard from "../../components/ProjectCard";
 import { createClient } from "contentful";
 import Masonry from "react-masonry-css";
-import "aos/dist/aos.css";
-import Footer from "../../components/Footer";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -11,9 +9,18 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENFUL_ACCESS_KEY,
   });
 
+  /** Only fields needed for the grid — smaller HTML/JSON and faster TTFB. */
   const res = await client.getEntries({
     content_type: "portfolioProject",
     order: "-sys.createdAt",
+    select: [
+      "sys",
+      "fields.slug",
+      "fields.projectTitle",
+      "fields.year",
+      "fields.thumbnail",
+    ].join(","),
+    include: 2,
   });
 
   return {
@@ -47,7 +54,6 @@ const projects = ({ portfolioprojects }) => {
           ))}
         </Masonry>
       </div>
-      <Footer color="black" zIndex={100} />
     </>
   );
 };

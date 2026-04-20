@@ -4,11 +4,6 @@ module.exports = {
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: 'picsum.photos',
-				pathname: '/**',
-			},
-			{
-				protocol: 'https',
 				hostname: 'images.ctfassets.net',
 				pathname: '/**',
 			},

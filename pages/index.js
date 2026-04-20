@@ -1,15 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import Link from "next/link";
 
 export default function Hero() {
-  useEffect(() => {
-    Aos.init({ duration: 1000 });
-  }, []);
-
   return (
     <>
       <Head>

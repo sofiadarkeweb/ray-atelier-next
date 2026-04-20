@@ -6,7 +6,9 @@ import { useRouter } from "next/router";
 export default function Layout({ children }) {
   const router = useRouter();
 
-  const showHeader = router.pathname === "/" ? false : true;
+  const { pathname } = router;
+  const showHeader = pathname !== "/";
+  const isHome = pathname === "/";
 
   return (
     <div className="layout">
@@ -19,7 +21,7 @@ export default function Layout({ children }) {
       )}
 
       <main>{children}</main>
-      <Footer color="white" />
+      <Footer color={isHome ? "white" : "black"} zIndex={isHome ? undefined : 100} />
     </div>
   );
 }

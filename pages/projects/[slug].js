@@ -1,27 +1,35 @@
 import { createClient } from "contentful";
 import Image from "next/image";
 import Masonry from "react-masonry-css";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
-import Footer from "../../components/Footer";
+import { imagePlaceholderBg } from "../../lib/image-placeholder";
 
 const client = createClient({
   space: process.env.CONTENFUL_SPACE_ID,
   accessToken: process.env.CONTENFUL_ACCESS_KEY,
 });
 
+/** Only fields used on the project page — keeps serialized page props small. */
+const projectDetailSelect = [
+  "sys",
+  "fields.projectTitle",
+  "fields.description",
+  "fields.year",
+  "fields.projectImages",
+  "fields.featuredImage",
+  "fields.fullWidthImage",
+].join(",");
+
+const detailImageQuality = 75;
+
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
     content_type: "portfolioProject",
+    select: "fields.slug",
   });
-  const paths = res.items.map((item) => {
-    return {
-      params: { slug: item.fields.slug },
-    };
-  });
+  const paths = res.items.map((item) => ({
+    params: { slug: item.fields.slug },
+  }));
 
-  // paths: paths can be shortened to just path, because its the same
   return {
     paths,
     fallback: false,
@@ -30,31 +38,26 @@ export const getStaticPaths = async () => {
 
 export async function getStaticProps({ params }) {
   const { items } = await client.getEntries({
-    //intead of all res, get items
     content_type: "portfolioProject",
     "fields.slug": params.slug,
+    select: projectDetailSelect,
+    include: 2,
   });
 
-  const res = await client.getEntries({ content_type: "portfolioProject" });
+  if (!items.length) {
+    return { notFound: true };
+  }
 
   return {
-    props: { portfolioProject: items[0], portfolioprojects: res.items },
+    props: { portfolioProject: items[0] },
   };
 }
 
-// how to output several images in different formats?
-export default function ProjectDetails({
-  portfolioProject,
-  portfolioprojects,
-}) {
+export default function ProjectDetails({ portfolioProject }) {
   const breakpointColumnsObj = {
     default: 2,
     500: 1,
   };
-
-  useEffect(() => {
-    Aos.init({ duration: 1000 });
-  }, []);
 
   const {
     projectTitle,
@@ -64,6 +67,12 @@ export default function ProjectDetails({
     projectImages,
     fullWidthImage,
   } = portfolioProject.fields;
+
+  const firstImagePriorityIndex = projectImages
+    ? projectImages.findIndex(
+        (img) => img.fields.file.contentType !== "video/mp4"
+      )
+    : -1;
 
   return (
     <div className="project-page">
@@ -81,7 +90,7 @@ export default function ProjectDetails({
           columnClassName="my-masonry-grid_column-more"
         >
           {projectImages &&
-            projectImages.map((img) => (
+            projectImages.map((img, index) => (
               <div key={img.sys.id} className="masonry-img" data-aos="fade-up">
                 {img.fields.file.contentType === "video/mp4" ? (
                   <video
@@ -89,7 +98,7 @@ export default function ProjectDetails({
                     muted
                     loop
                     playsInline
-                    preload="auto"
+                    preload="metadata"
                     className="project-video"
                   >
                     <source
@@ -104,7 +113,14 @@ export default function ProjectDetails({
                     width={img.fields.file.details.image.width}
                     height={img.fields.file.details.image.height}
                     sizes="(max-width: 500px) 100vw, 50vw"
-                    style={{ width: "100%", height: "auto" }}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      backgroundColor: imagePlaceholderBg,
+                    }}
+                    quality={detailImageQuality}
+                    placeholder="empty"
+                    priority={index === firstImagePriorityIndex}
                   />
                 )}
                 <span className="caption">{img.fields.description}</span>
@@ -119,7 +135,7 @@ export default function ProjectDetails({
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
                 className="project-video"
               >
                 <source
@@ -134,7 +150,13 @@ export default function ProjectDetails({
                 width={featuredImage.fields.file.details.image.width}
                 height={featuredImage.fields.file.details.image.height}
                 sizes="(max-width: 500px) 100vw, 93vw"
-                style={{ width: "100%", height: "auto" }}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  backgroundColor: imagePlaceholderBg,
+                }}
+                quality={detailImageQuality}
+                placeholder="empty"
               />
             )}
           </div>
@@ -147,7 +169,7 @@ export default function ProjectDetails({
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
                 className="project-video"
               >
                 <source
@@ -162,13 +184,18 @@ export default function ProjectDetails({
                 width={fullWidthImage.fields.file.details.image.width}
                 height={fullWidthImage.fields.file.details.image.height}
                 sizes="(max-width: 500px) 100vw, 93vw"
-                style={{ width: "100%", height: "auto" }}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  backgroundColor: imagePlaceholderBg,
+                }}
+                quality={detailImageQuality}
+                placeholder="empty"
               />
             )}
           </div>
         )}
       </div>
-      <Footer color="black" zIndex={100} />
     </div>
   );
 }

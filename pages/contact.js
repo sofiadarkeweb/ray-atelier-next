@@ -1,7 +1,6 @@
 import React from "react";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Footer from "../components/Footer";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -41,7 +40,6 @@ const contact = ({ othertexts }) => {
       <div className="text-section">
         {documentToReactComponents(othertexts[0].fields.contact, options)}
       </div>
-      <Footer color="black" zIndex={100} />{" "}
     </>
   );
 };
